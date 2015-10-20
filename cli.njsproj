@@ -13,7 +13,8 @@
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
     <StartWebBrowser>True</StartWebBrowser>
-    <ScriptArguments></ScriptArguments>
+    <ScriptArguments>
+    </ScriptArguments>
     <Environment>
     </Environment>
   </PropertyGroup>
@@ -22,6 +23,25 @@
   <ItemGroup>
     <Content Include="ChangeLog.txt" />
     <Content Include="CONTRIBUTORS.txt" />
+    <Content Include="lib\commands\arm\hdinsight\hdinsight.js" />
+    <Content Include="lib\commands\arm\vm\networkNic._js" />
+    <Content Include="lib\commands\arm\vm\networkPublicIP._js" />
+    <Content Include="lib\commands\arm\vm\networkVNet._js" />
+    <Content Include="lib\commands\arm\vm\networkVNetSubnet._js" />
+    <Content Include="lib\commands\arm\vm\virtualMachine._js" />
+    <Content Include="lib\commands\arm\vm\vm._js" />
+    <Content Include="lib\commands\arm\vm\vmAvailabilitySetProfile._js" />
+    <Content Include="lib\commands\arm\vm\vmClient._js" />
+    <Content Include="lib\commands\arm\vm\vmConstants._js" />
+    <Content Include="lib\commands\arm\vm\vmDiagnosticsProfile._js" />
+    <Content Include="lib\commands\arm\vm\vmExtensionProfile._js" />
+    <Content Include="lib\commands\arm\vm\vmHardwareProfile._js" />
+    <Content Include="lib\commands\arm\vm\vmImage._js" />
+    <Content Include="lib\commands\arm\vm\vmNetworkProfile._js" />
+    <Content Include="lib\commands\arm\vm\vmOsProfile._js" />
+    <Content Include="lib\commands\arm\vm\vmProfile._js" />
+    <Content Include="lib\commands\arm\vm\vmShowUtil._js" />
+    <Content Include="lib\commands\arm\vm\vmStorageProfile._js" />
     <Content Include="LICENSE.txt" />
     <Content Include="package.json" />
     <Content Include="CONTRIBUTING.md" />
@@ -45,6 +65,14 @@
     <Compile Include="lib\autocomplete.js" />
     <Compile Include="lib\cli.js" />
     <Compile Include="lib\cmdLoader.js" />
+    <Compile Include="lib\commands\arm\hdinsight\hdiClient.js" />
+    <Compile Include="lib\commands\arm\hdinsight\hdiConstants.js" />
+    <Compile Include="lib\commands\arm\hdinsight\hdiCustomization.js" />
+    <Compile Include="lib\commands\arm\hdinsight\hdiUtils.js" />
+    <Compile Include="lib\commands\arm\temporary\hdinsight2.js" />
+    <Compile Include="lib\commands\arm\temporary\hdinsightjob2.js" />
+    <Compile Include="lib\commands\arm\temporary\hDInsightJobManagementClient.js" />
+    <Compile Include="lib\commands\arm\temporary\hDInsightManagementClient.js" />
     <Compile Include="lib\util\authentication\adalAuthForUser.js" />
     <Compile Include="lib\util\authentication\adalAuthForServicePrincipal.js" />
     <Compile Include="lib\util\profile\account.js" />
@@ -417,6 +445,7 @@
     <Folder Include="lib\commands\arm\keyvault" />
     <Folder Include="lib\commands\arm\location" />
     <Folder Include="lib\commands\arm\network" />
+    <Folder Include="lib\commands\arm\hdinsight\" />
     <Folder Include="lib\commands\arm\providers" />
     <Folder Include="lib\commands\arm\resource" />
     <Folder Include="lib\commands\arm\role" />

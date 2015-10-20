@@ -10575,6 +10575,858 @@
         }
       }
     },
+    "hdinsight": {
+      "name": "hdinsight",
+      "description": "Commands to manage HDInsight clusters and jobs",
+      "fullName": "hdinsight",
+      "usage": "[options]",
+      "options": [],
+      "commands": [],
+      "categories": {
+        "cluster": {
+          "name": "cluster",
+          "description": "Commands to manage HDInsight clusters",
+          "fullName": "hdinsight cluster",
+          "usage": "[options] [command]",
+          "options": [],
+          "commands": [
+            {
+              "name": "create",
+              "description": "Create a cluster in a resource group",
+              "fullName": "hdinsight cluster create",
+              "usage": "[options] <resourceGroupName> <clusterName> <location> <osType>",
+              "filePath": "commands/arm/hdinsight/hdinsight.js",
+              "options": [
+                {
+                  "flags": "-v, --verbose",
+                  "required": 0,
+                  "optional": 0,
+                  "bool": true,
+                  "short": "-v",
+                  "long": "--verbose",
+                  "description": "use verbose output"
+                },
+                {
+                  "flags": "-vv",
+                  "required": 0,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "-vv",
+                  "description": "more verbose with debug output"
+                },
+                {
+                  "flags": "--json",
+                  "required": 0,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--json",
+                  "description": "use json output"
+                },
+                {
+                  "flags": "-g, --resourceGroupName <resourceGroupName>",
+                  "required": -25,
+                  "optional": 0,
+                  "bool": true,
+                  "short": "-g",
+                  "long": "--resourceGroupName",
+                  "description": "Azure resource group name for the cluster"
+                },
+                {
+                  "flags": "-c, --clusterName <clusterName>",
+                  "required": -19,
+                  "optional": 0,
+                  "bool": true,
+                  "short": "-c",
+                  "long": "--clusterName",
+                  "description": "HDInsight cluster name"
+                },
+                {
+                  "flags": "-l, --location <location>",
+                  "required": -16,
+                  "optional": 0,
+                  "bool": true,
+                  "short": "-l",
+                  "long": "--location",
+                  "description": "Data center location for the cluster"
+                },
+                {
+                  "flags": "-y, --osType <osType>",
+                  "required": -14,
+                  "optional": 0,
+                  "bool": true,
+                  "short": "-y",
+                  "long": "--osType",
+                  "description": "HDInsight cluster operating system - 'windows' or 'linux'"
+                },
+                {
+                  "flags": "--defaultStorageAccountName <storageAccountName>",
+                  "required": -29,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--defaultStorageAccountName",
+                  "description": "Storage account url to use for default HDInsight storage"
+                },
+                {
+                  "flags": "--defaultStorageAccountKey <storageAccountKey>",
+                  "required": -28,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--defaultStorageAccountKey",
+                  "description": "Key to the storage account to use for default HDInsight storage"
+                },
+                {
+                  "flags": "--defaultStorageContainer <storageContainer>",
+                  "required": -27,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--defaultStorageContainer",
+                  "description": "Container in the storage account to use for HDInsight default storage"
+                },
+                {
+                  "flags": "--dataNodeCount <dataNodeCount>",
+                  "required": -17,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--dataNodeCount",
+                  "description": "Number of data nodes to use for the cluster"
+                },
+                {
+                  "flags": "--headNodeSize <headNodeSize>",
+                  "required": -16,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--headNodeSize",
+                  "description": "NOTE: Head node size for the cluster (only allowed for 'windows' ostype)"
+                },
+                {
+                  "flags": "--dataNodeSize <dataNodeSize>",
+                  "required": -16,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--dataNodeSize",
+                  "description": "NOTE: Data node size for the cluster (only allowed for 'windows' ostype)"
+                },
+                {
+                  "flags": "--userName <userName>",
+                  "required": -12,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--userName",
+                  "description": "Cluster username"
+                },
+                {
+                  "flags": "--password <password>",
+                  "required": -12,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--password",
+                  "description": "Cluster password"
+                },
+                {
+                  "flags": "--sshUserName <sshUserName>",
+                  "required": -15,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--sshUserName",
+                  "description": "SSH username"
+                },
+                {
+                  "flags": "--sshPassword <sshPassword>",
+                  "required": -15,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--sshPassword",
+                  "description": "SSH password"
+                },
+                {
+                  "flags": "-s, --subscription <id>",
+                  "required": -20,
+                  "optional": 0,
+                  "bool": true,
+                  "short": "-s",
+                  "long": "--subscription",
+                  "description": "the subscription id"
+                }
+              ]
+            },
+            {
+              "name": "delete",
+              "description": "Delete a cluster",
+              "fullName": "hdinsight cluster delete",
+              "usage": "[options] <clusterName> <location> <osType>",
+              "filePath": "commands/arm/hdinsight/hdinsight.js",
+              "options": [
+                {
+                  "flags": "-v, --verbose",
+                  "required": 0,
+                  "optional": 0,
+                  "bool": true,
+                  "short": "-v",
+                  "long": "--verbose",
+                  "description": "use verbose output"
+                },
+                {
+                  "flags": "-vv",
+                  "required": 0,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "-vv",
+                  "description": "more verbose with debug output"
+                },
+                {
+                  "flags": "--json",
+                  "required": 0,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--json",
+                  "description": "use json output"
+                },
+                {
+                  "flags": "--clusterName <clusterName>",
+                  "required": -15,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--clusterName",
+                  "description": "Cluster name"
+                },
+                {
+                  "flags": "--location <location>",
+                  "required": -12,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--location",
+                  "description": "Cluster location"
+                },
+                {
+                  "flags": "--osType <osType>",
+                  "required": -10,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--osType",
+                  "description": "Cluster OS type"
+                },
+                {
+                  "flags": "-s, --subscription <id>",
+                  "required": -20,
+                  "optional": 0,
+                  "bool": true,
+                  "short": "-s",
+                  "long": "--subscription",
+                  "description": "the subscription id"
+                }
+              ]
+            },
+            {
+              "name": "show",
+              "description": "Show cluster details",
+              "fullName": "hdinsight cluster show",
+              "usage": "[options] <clusterName> <osType>",
+              "filePath": "commands/arm/hdinsight/hdinsight.js",
+              "options": [
+                {
+                  "flags": "-v, --verbose",
+                  "required": 0,
+                  "optional": 0,
+                  "bool": true,
+                  "short": "-v",
+                  "long": "--verbose",
+                  "description": "use verbose output"
+                },
+                {
+                  "flags": "-vv",
+                  "required": 0,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "-vv",
+                  "description": "more verbose with debug output"
+                },
+                {
+                  "flags": "--json",
+                  "required": 0,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--json",
+                  "description": "use json output"
+                },
+                {
+                  "flags": "--clusterName <clusterName>",
+                  "required": -15,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--clusterName",
+                  "description": "the HdInsight cluster name"
+                },
+                {
+                  "flags": "--osType <osType>",
+                  "required": -10,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--osType",
+                  "description": "the HdInsight cluster operating system: windows OR linux"
+                },
+                {
+                  "flags": "-s, --subscription <id>",
+                  "required": -20,
+                  "optional": 0,
+                  "bool": true,
+                  "short": "-s",
+                  "long": "--subscription",
+                  "description": "the subscription id"
+                }
+              ]
+            },
+            {
+              "name": "list",
+              "description": "List the clusters",
+              "fullName": "hdinsight cluster list",
+              "usage": "[options]",
+              "filePath": "commands/arm/hdinsight/hdinsight.js",
+              "options": [
+                {
+                  "flags": "-v, --verbose",
+                  "required": 0,
+                  "optional": 0,
+                  "bool": true,
+                  "short": "-v",
+                  "long": "--verbose",
+                  "description": "use verbose output"
+                },
+                {
+                  "flags": "-vv",
+                  "required": 0,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "-vv",
+                  "description": "more verbose with debug output"
+                },
+                {
+                  "flags": "--json",
+                  "required": 0,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--json",
+                  "description": "use json output"
+                }
+              ]
+            }
+          ],
+          "categories": {}
+        },
+        "job": {
+          "name": "job",
+          "description": "Commands to manage HDInsight jobs",
+          "fullName": "hdinsight job",
+          "usage": "[options] [command]",
+          "options": [],
+          "commands": [
+            {
+              "name": "hive_create",
+              "description": "Submits a Hive job to an HdInsight cluster",
+              "fullName": "hdinsight job hive_create",
+              "usage": "[options] <clusterDnsName> <userName> <password>",
+              "filePath": "commands/arm/hdinsight/hdinsight.js",
+              "options": [
+                {
+                  "flags": "-v, --verbose",
+                  "required": 0,
+                  "optional": 0,
+                  "bool": true,
+                  "short": "-v",
+                  "long": "--verbose",
+                  "description": "use verbose output"
+                },
+                {
+                  "flags": "-vv",
+                  "required": 0,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "-vv",
+                  "description": "more verbose with debug output"
+                },
+                {
+                  "flags": "--json",
+                  "required": 0,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--json",
+                  "description": "use json output"
+                },
+                {
+                  "flags": "--clusterDnsName <clusterDnsName>",
+                  "required": -18,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--clusterDnsName",
+                  "description": "Fully qualified cluster DNS name. Example: mycluster.azurehdinsight.net"
+                },
+                {
+                  "flags": "--userName <userName>",
+                  "required": -12,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--userName",
+                  "description": "User name for the cluster"
+                },
+                {
+                  "flags": "--password <password>",
+                  "required": -12,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--password",
+                  "description": "Password for the cluster"
+                },
+                {
+                  "flags": "--query <query>",
+                  "required": -9,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--query",
+                  "description": "The Hive query string to be executed"
+                },
+                {
+                  "flags": "--queryFile <queryFile>",
+                  "required": -13,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--queryFile",
+                  "description": "The path to a file that contains the Hive query to be executed; this parameter and the [query] parameter are mutually exclusive"
+                },
+                {
+                  "flags": "--arguments <arguments>",
+                  "required": -13,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--arguments",
+                  "description": "A comma separated string of arguments to be passed to the Hive job. For example: \"a1,a2,a3\""
+                },
+                {
+                  "flags": "--defines <defines>",
+                  "required": -11,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--defines",
+                  "description": "A key/value pair of Hadoop configuration values to be set during the Hive job execution. For example: \"k1=v1,k2=v2\""
+                },
+                {
+                  "flags": "--files <files>",
+                  "required": -9,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--files",
+                  "description": "A comma separated string of file paths required for the Hive job to execute. For example: \"f1/f2/f3,f4/f5,f6\""
+                },
+                {
+                  "flags": "-s, --subscription <id>",
+                  "required": -20,
+                  "optional": 0,
+                  "bool": true,
+                  "short": "-s",
+                  "long": "--subscription",
+                  "description": "the subscription id"
+                }
+              ]
+            },
+            {
+              "name": "mr_create",
+              "description": "Submits a MapReduce job to an HdInsight cluster",
+              "fullName": "hdinsight job mr_create",
+              "usage": "[options] <clusterDnsName> <userName> <password> <className> <jarFile>",
+              "filePath": "commands/arm/hdinsight/hdinsight.js",
+              "options": [
+                {
+                  "flags": "-v, --verbose",
+                  "required": 0,
+                  "optional": 0,
+                  "bool": true,
+                  "short": "-v",
+                  "long": "--verbose",
+                  "description": "use verbose output"
+                },
+                {
+                  "flags": "-vv",
+                  "required": 0,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "-vv",
+                  "description": "more verbose with debug output"
+                },
+                {
+                  "flags": "--json",
+                  "required": 0,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--json",
+                  "description": "use json output"
+                },
+                {
+                  "flags": "--clusterDnsName <clusterDnsName>",
+                  "required": -18,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--clusterDnsName",
+                  "description": "Fully qualified cluster DNS name. Example: mycluster.azurehdinsight.net"
+                },
+                {
+                  "flags": "--userName <userName>",
+                  "required": -12,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--userName",
+                  "description": "User name for the cluster"
+                },
+                {
+                  "flags": "--password <password>",
+                  "required": -12,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--password",
+                  "description": "Password for the cluster"
+                },
+                {
+                  "flags": "--className <className>",
+                  "required": -13,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--className",
+                  "description": "Name of the job class in the job JAR file"
+                },
+                {
+                  "flags": "--jarFile <jarFile>",
+                  "required": -11,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--jarFile",
+                  "description": "The fully qualified name of the JAR file that contains the code and dependencies of the MapReduce job"
+                },
+                {
+                  "flags": "--arguments <arguments>",
+                  "required": -13,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--arguments",
+                  "description": "A comma separated string of arguments to be passed to the MapReduce job. For example: \"a1,a2,a3\""
+                },
+                {
+                  "flags": "--defines <defines>",
+                  "required": -11,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--defines",
+                  "description": "A key/value pair of Hadoop configuration values to be set during the MapReduce job execution. For example: \"k1=v1,k2=v2\""
+                },
+                {
+                  "flags": "--files <files>",
+                  "required": -9,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--files",
+                  "description": "A comma separated string of file paths required for the MapReduce job to execute. For example: \"f1/f2/f3,f4/f5,f6\""
+                },
+                {
+                  "flags": "--libJars <libJars>",
+                  "required": -11,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--libJars",
+                  "description": "The Jar library references for the MapReduce job"
+                },
+                {
+                  "flags": "-s, --subscription <id>",
+                  "required": -20,
+                  "optional": 0,
+                  "bool": true,
+                  "short": "-s",
+                  "long": "--subscription",
+                  "description": "the subscription id"
+                }
+              ]
+            },
+            {
+              "name": "mr_streaming_create",
+              "description": "Submits a Streaming MapReduce job to an HdInsight cluster",
+              "fullName": "hdinsight job mr_streaming_create",
+              "usage": "[options] <clusterDnsName> <userName> <password> <mapper> <reducer>",
+              "filePath": "commands/arm/hdinsight/hdinsight.js",
+              "options": [
+                {
+                  "flags": "-v, --verbose",
+                  "required": 0,
+                  "optional": 0,
+                  "bool": true,
+                  "short": "-v",
+                  "long": "--verbose",
+                  "description": "use verbose output"
+                },
+                {
+                  "flags": "-vv",
+                  "required": 0,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "-vv",
+                  "description": "more verbose with debug output"
+                },
+                {
+                  "flags": "--json",
+                  "required": 0,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--json",
+                  "description": "use json output"
+                },
+                {
+                  "flags": "--clusterDnsName <clusterDnsName>",
+                  "required": -18,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--clusterDnsName",
+                  "description": "Fully qualified cluster DNS name. Example: mycluster.azurehdinsight.net"
+                },
+                {
+                  "flags": "--userName <userName>",
+                  "required": -12,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--userName",
+                  "description": "User name for the cluster"
+                },
+                {
+                  "flags": "--password <password>",
+                  "required": -12,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--password",
+                  "description": "Password for the cluster"
+                },
+                {
+                  "flags": "--arguments <arguments>",
+                  "required": -13,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--arguments",
+                  "description": "A comma separated string of arguments to be passed to the Streaming MapReduce job. For example: \"a1,a2,a3\""
+                },
+                {
+                  "flags": "--cmdenv <cmdEnv>",
+                  "required": -10,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--cmdenv",
+                  "description": "Comma separated key/value pairs of environment variables that should be set during the Streaming MapReduce job execution on data nodes"
+                },
+                {
+                  "flags": "--mapper <combiner>",
+                  "required": -10,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--mapper",
+                  "description": "Mapper executable name for the Streaming MapReduce job"
+                },
+                {
+                  "flags": "--reducer <reducer>",
+                  "required": -11,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--reducer",
+                  "description": "Reducer executable name for the Streaming MapReduce job"
+                },
+                {
+                  "flags": "--combiner <combiner>",
+                  "required": -12,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--combiner",
+                  "description": "Combiner executable name for the Streaming MapReduce job"
+                },
+                {
+                  "flags": "--defines <defines>",
+                  "required": -11,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--defines",
+                  "description": "A comma separated key/value pair of Hadoop configuration values to be set during the Streaming MapReduce job execution. For example: \"k1=v1,k2=v2\""
+                },
+                {
+                  "flags": "--files <files>",
+                  "required": -9,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--files",
+                  "description": "A comma separated string of file paths required for the Streaming MapReduce job to execute. For example: \"f1/f2/f3,f4/f5,f6\""
+                },
+                {
+                  "flags": "--inputPath <inputPath>",
+                  "required": -13,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--inputPath",
+                  "description": "Location of the input files for the Streaming MapReduce job"
+                },
+                {
+                  "flags": "--outputPath <outputPath>",
+                  "required": -14,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--outputPath",
+                  "description": "Location of the output files for the Streaming MapReduce job"
+                },
+                {
+                  "flags": "-s, --subscription <id>",
+                  "required": -20,
+                  "optional": 0,
+                  "bool": true,
+                  "short": "-s",
+                  "long": "--subscription",
+                  "description": "the subscription id"
+                }
+              ]
+            },
+            {
+              "name": "show",
+              "description": "Retrieves the details of the specified job from an HDInsight cluster",
+              "fullName": "hdinsight job show",
+              "usage": "[options] <clusterDnsName> <userName> <password> <jobId>",
+              "filePath": "commands/arm/hdinsight/hdinsight.js",
+              "options": [
+                {
+                  "flags": "-v, --verbose",
+                  "required": 0,
+                  "optional": 0,
+                  "bool": true,
+                  "short": "-v",
+                  "long": "--verbose",
+                  "description": "use verbose output"
+                },
+                {
+                  "flags": "-vv",
+                  "required": 0,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "-vv",
+                  "description": "more verbose with debug output"
+                },
+                {
+                  "flags": "--json",
+                  "required": 0,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--json",
+                  "description": "use json output"
+                },
+                {
+                  "flags": "--clusterDnsName <clusterDnsName>",
+                  "required": -18,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--clusterDnsName",
+                  "description": "Fully qualified cluster DNS name. Example: mycluster.azurehdinsight.net"
+                },
+                {
+                  "flags": "--userName <userName>",
+                  "required": -12,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--userName",
+                  "description": "User name for the cluster"
+                },
+                {
+                  "flags": "--password <password>",
+                  "required": -12,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--password",
+                  "description": "Password for the cluster"
+                },
+                {
+                  "flags": "--jobId <jobId>",
+                  "required": -9,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--jobId",
+                  "description": "The Id of the job for which the details need to be retrieved"
+                },
+                {
+                  "flags": "-s, --subscription <id>",
+                  "required": -20,
+                  "optional": 0,
+                  "bool": true,
+                  "short": "-s",
+                  "long": "--subscription",
+                  "description": "the subscription id"
+                }
+              ]
+            },
+            {
+              "name": "list",
+              "description": "Retrieves the list of jobs from the specified HDInsight cluster",
+              "fullName": "hdinsight job list",
+              "usage": "[options] <clusterDnsName> <userName> <password>",
+              "filePath": "commands/arm/hdinsight/hdinsight.js",
+              "options": [
+                {
+                  "flags": "-v, --verbose",
+                  "required": 0,
+                  "optional": 0,
+                  "bool": true,
+                  "short": "-v",
+                  "long": "--verbose",
+                  "description": "use verbose output"
+                },
+                {
+                  "flags": "-vv",
+                  "required": 0,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "-vv",
+                  "description": "more verbose with debug output"
+                },
+                {
+                  "flags": "--json",
+                  "required": 0,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--json",
+                  "description": "use json output"
+                },
+                {
+                  "flags": "--clusterDnsName <clusterDnsName>",
+                  "required": -18,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--clusterDnsName",
+                  "description": "Fully qualified cluster DNS name. Example: mycluster.azurehdinsight.net"
+                },
+                {
+                  "flags": "--userName <userName>",
+                  "required": -12,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--userName",
+                  "description": "User name for the cluster"
+                },
+                {
+                  "flags": "--password <password>",
+                  "required": -12,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--password",
+                  "description": "Password for the cluster"
+                },
+                {
+                  "flags": "-s, --subscription <id>",
+                  "required": -20,
+                  "optional": 0,
+                  "bool": true,
+                  "short": "-s",
+                  "long": "--subscription",
+                  "description": "the subscription id"
+                }
+              ]
+            }
+          ],
+          "categories": {}
+        }
+      }
+    },
     "insights": {
       "name": "insights",
       "description": "Commands related to monitoring Insights (events, alert rules, autoscale settings, metrics)",
