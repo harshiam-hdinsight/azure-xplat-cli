@@ -10707,6 +10707,14 @@
                   "description": "NOTE: Data node size for the cluster (only allowed for 'windows' ostype)"
                 },
                 {
+                  "flags": "--zookeeperNodeSize <zookeeperNodeSize>",
+                  "required": -21,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--zookeeperNodeSize",
+                  "description": "NOTE: Zookeeper node size for the cluster (only allowed for 'windows' ostype)"
+                },
+                {
                   "flags": "--userName <userName>",
                   "required": -12,
                   "optional": 0,
@@ -10737,6 +10745,62 @@
                   "bool": true,
                   "long": "--sshPassword",
                   "description": "SSH password"
+                },
+                {
+                  "flags": "--rdpUserName <rdpUserName>",
+                  "required": -15,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--rdpUserName",
+                  "description": "RDP username"
+                },
+                {
+                  "flags": "--rdpPassword <rdpPassword>",
+                  "required": -15,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--rdpPassword",
+                  "description": "RDP password"
+                },
+                {
+                  "flags": "--rdpAccessExpiry <rdpAccessExpiry>",
+                  "required": -19,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--rdpAccessExpiry",
+                  "description": "RDP access expiry"
+                },
+                {
+                  "flags": "--version <version>",
+                  "required": -11,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--version",
+                  "description": "HDInsight cluster version"
+                },
+                {
+                  "flags": "--clusterType <clusterType>",
+                  "required": -15,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--clusterType",
+                  "description": "HDInsight cluster type"
+                },
+                {
+                  "flags": "--virtualNetworkId <virtualNetworkId>",
+                  "required": -20,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--virtualNetworkId",
+                  "description": "NOTE: Virtual network ID for the cluster (only allowed for 'Linux' ostype)"
+                },
+                {
+                  "flags": "--subnetName <subnetName>",
+                  "required": -14,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--subnetName",
+                  "description": "NOTE: Subnet for the cluster (only allowed for 'Linux' ostype)"
                 },
                 {
                   "flags": "-s, --subscription <id>",
