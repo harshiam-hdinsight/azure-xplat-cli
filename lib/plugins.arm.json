@@ -10595,7 +10595,7 @@
               "description": "Create a cluster in a resource group",
               "fullName": "hdinsight cluster create",
               "usage": "[options] <resourceGroupName> <clusterName> <location> <osType>",
-              "filePath": "commands/arm/hdinsight/hdinsight.js",
+              "filePath": "commands/arm/hdinsight/hdinsight._js",
               "options": [
                 {
                   "flags": "-v, --verbose",
@@ -10818,7 +10818,7 @@
               "description": "Delete a cluster",
               "fullName": "hdinsight cluster delete",
               "usage": "[options] <clusterName> <location> <osType>",
-              "filePath": "commands/arm/hdinsight/hdinsight.js",
+              "filePath": "commands/arm/hdinsight/hdinsight._js",
               "options": [
                 {
                   "flags": "-v, --verbose",
@@ -10884,8 +10884,8 @@
               "name": "show",
               "description": "Show cluster details",
               "fullName": "hdinsight cluster show",
-              "usage": "[options] <clusterName> <osType>",
-              "filePath": "commands/arm/hdinsight/hdinsight.js",
+              "usage": "[options] <resourceGroupName> <clusterName>",
+              "filePath": "commands/arm/hdinsight/hdinsight._js",
               "options": [
                 {
                   "flags": "-v, --verbose",
@@ -10913,20 +10913,22 @@
                   "description": "use json output"
                 },
                 {
-                  "flags": "--clusterName <clusterName>",
-                  "required": -15,
+                  "flags": "-g, --resourceGroupName <resourceGroupName>",
+                  "required": -25,
                   "optional": 0,
                   "bool": true,
-                  "long": "--clusterName",
-                  "description": "the HdInsight cluster name"
+                  "short": "-g",
+                  "long": "--resourceGroupName",
+                  "description": "Azure resource group name for the cluster"
                 },
                 {
-                  "flags": "--osType <osType>",
-                  "required": -10,
+                  "flags": "-c, --clusterName <clusterName>",
+                  "required": -19,
                   "optional": 0,
                   "bool": true,
-                  "long": "--osType",
-                  "description": "the HdInsight cluster operating system: windows OR linux"
+                  "short": "-c",
+                  "long": "--clusterName",
+                  "description": "HDInsight cluster name"
                 },
                 {
                   "flags": "-s, --subscription <id>",
@@ -10941,10 +10943,10 @@
             },
             {
               "name": "list",
-              "description": "List the clusters",
+              "description": "List all the clusters (in a specific resource group if provided) .",
               "fullName": "hdinsight cluster list",
-              "usage": "[options]",
-              "filePath": "commands/arm/hdinsight/hdinsight.js",
+              "usage": "[options] <resourceGroupName>",
+              "filePath": "commands/arm/hdinsight/hdinsight._js",
               "options": [
                 {
                   "flags": "-v, --verbose",
@@ -10970,6 +10972,24 @@
                   "bool": true,
                   "long": "--json",
                   "description": "use json output"
+                },
+                {
+                  "flags": "-g, --resourceGroupName <resourceGroupName>",
+                  "required": -25,
+                  "optional": 0,
+                  "bool": true,
+                  "short": "-g",
+                  "long": "--resourceGroupName",
+                  "description": "Azure resource group name for the cluster"
+                },
+                {
+                  "flags": "-s, --subscription <id>",
+                  "required": -20,
+                  "optional": 0,
+                  "bool": true,
+                  "short": "-s",
+                  "long": "--subscription",
+                  "description": "the subscription id"
                 }
               ]
             }
@@ -10988,7 +11008,7 @@
               "description": "Submits a Hive job to an HdInsight cluster",
               "fullName": "hdinsight job hive_create",
               "usage": "[options] <clusterDnsName> <userName> <password>",
-              "filePath": "commands/arm/hdinsight/hdinsight.js",
+              "filePath": "commands/arm/hdinsight/hdinsight._js",
               "options": [
                 {
                   "flags": "-v, --verbose",
@@ -11095,7 +11115,7 @@
               "description": "Submits a MapReduce job to an HdInsight cluster",
               "fullName": "hdinsight job mr_create",
               "usage": "[options] <clusterDnsName> <userName> <password> <className> <jarFile>",
-              "filePath": "commands/arm/hdinsight/hdinsight.js",
+              "filePath": "commands/arm/hdinsight/hdinsight._js",
               "options": [
                 {
                   "flags": "-v, --verbose",
@@ -11210,7 +11230,7 @@
               "description": "Submits a Streaming MapReduce job to an HdInsight cluster",
               "fullName": "hdinsight job mr_streaming_create",
               "usage": "[options] <clusterDnsName> <userName> <password> <mapper> <reducer>",
-              "filePath": "commands/arm/hdinsight/hdinsight.js",
+              "filePath": "commands/arm/hdinsight/hdinsight._js",
               "options": [
                 {
                   "flags": "-v, --verbose",
@@ -11349,7 +11369,7 @@
               "description": "Retrieves the details of the specified job from an HDInsight cluster",
               "fullName": "hdinsight job show",
               "usage": "[options] <clusterDnsName> <userName> <password> <jobId>",
-              "filePath": "commands/arm/hdinsight/hdinsight.js",
+              "filePath": "commands/arm/hdinsight/hdinsight._js",
               "options": [
                 {
                   "flags": "-v, --verbose",
@@ -11424,7 +11444,7 @@
               "description": "Retrieves the list of jobs from the specified HDInsight cluster",
               "fullName": "hdinsight job list",
               "usage": "[options] <clusterDnsName> <userName> <password>",
-              "filePath": "commands/arm/hdinsight/hdinsight.js",
+              "filePath": "commands/arm/hdinsight/hdinsight._js",
               "options": [
                 {
                   "flags": "-v, --verbose",

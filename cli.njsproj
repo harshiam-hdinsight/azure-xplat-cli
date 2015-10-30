@@ -23,7 +23,11 @@
   <ItemGroup>
     <Content Include="ChangeLog.txt" />
     <Content Include="CONTRIBUTORS.txt" />
-    <Content Include="lib\commands\arm\hdinsight\hdinsight.js" />
+    <Content Include="lib\commands\arm\hdinsight\hdiClient._js" />
+    <Content Include="lib\commands\arm\hdinsight\hdiConstants._js" />
+    <Content Include="lib\commands\arm\hdinsight\hdiCustomization._js" />
+    <Content Include="lib\commands\arm\hdinsight\hdinsight._js" />
+    <Content Include="lib\commands\arm\hdinsight\hdiUtils._js" />
     <Content Include="lib\commands\arm\vm\networkNic._js" />
     <Content Include="lib\commands\arm\vm\networkPublicIP._js" />
     <Content Include="lib\commands\arm\vm\networkVNet._js" />
@@ -60,15 +64,10 @@
     <Content Include="Documentation\TestModes.md" />
     <Content Include="Documentation\Writing-Cmd.md" />
     <Content Include="Documentation\Writing-Test.md" />
-    <Content Include="lib\plugins.arm.json" />
     <Content Include="lib\plugins.asm.json" />
     <Compile Include="lib\autocomplete.js" />
     <Compile Include="lib\cli.js" />
     <Compile Include="lib\cmdLoader.js" />
-    <Compile Include="lib\commands\arm\hdinsight\hdiClient.js" />
-    <Compile Include="lib\commands\arm\hdinsight\hdiConstants.js" />
-    <Compile Include="lib\commands\arm\hdinsight\hdiCustomization.js" />
-    <Compile Include="lib\commands\arm\hdinsight\hdiUtils.js" />
     <Compile Include="lib\commands\arm\temporary\hdinsight2.js" />
     <Compile Include="lib\commands\arm\temporary\hdinsightjob2.js" />
     <Compile Include="lib\commands\arm\temporary\hDInsightJobManagementClient.js" />
