@@ -1,9 +1,67 @@
-## 2015.10.01 Version 0.9.10
+## 2015.10.29 Version 0.9.11
+* Authorization
+  * Add paging support for role assignment list calls
+  * Modify RoleDefinitionId Display and Input to be a Guid in role and roleassignment commands.
+  * Added RoleId as a parameter in create and delete role assignment commands.
+  * Documentation/help text updates and miscellaneous bug fixes 
+* Resource
+  * Add resource move command
+  * Add list deployment operation command
+  * Add an option to avoid deployment validation
+* Network
+  * Add DNS Zone import commands
+  * Add Express Route providers list commands
+  * Fixed issue #2177, #2236
+* Storage
+  * Uses GA version of storage sdk library
+  * Set the default concurrency to 10
+  * Add --description in the storage account set command
+* Compute
+  * Enable disk encryption options for VM creation
+  * Enable BGInfo extension on VM by default
+* DataLake commands
+* Website
+  * Updated kudu scripts to v1.0.3
+* Login
+  * Add US Goverment environment
+  * Fixed Osx login error caused by invalid keychain entries
+  
+## 2015.10.02 Version 0.9.10
 * Authorization
   * Fixed display of role assignments display to add and remove certain fields.
   * Added expandPrincipalGroups and includeClassicAdministrators options to role assignment list command
   * Updated all role assignment commands to take in a signInName parameter instead of upn and email and renamed the role parameter to roleName
   * Added new role assignment changelog list command that gives access change history for a subscription
+  * Role assignment Get fixes
+  * Role Assignment Delete fixes
+* Compute
+  * Fixed issue #2119
+  * Removed support for ASM images in ARM
+* Network
+  * Fixed issue #2143 in azure network vnet list command
+  * Implemented ARM  Load Balancer  Inbound NAT Pools  commands
+  * Load Balancer refactoring: constants improved, checking  statusCode  instead of error message, etc.
+* Logging
+  * Added truncation by default to the silly log capture after 1MB of logs has been captured
+  * Added a AZURE_CLI_DISABLE_LOG_CAPTURE environment variable which allows silly log capturing to be disabled
+* Resource
+  * Update "azure group template" commands to work with newer gallery service.
+  * Remove "--gallery-template" arguments from "group" and "group deployment" create commands.
+* Storage
+  * Update the storage dependency to 0.6.0 to be compatible with Nodejs 4.x
+  * Fixed issues #2102, #2103
+* KeyVault
+  * Updated DNS suffix to correct azurechinacloud dns suffix.
+  * Updated keyvault api version to current GA version ('2015-06-01').
+* Usage
+  * Documented the format of the date parameters and prompted for the dates if they weren't provided
+* MFA Login
+  * Fixed bad error message when the user logs in with an MSA account
+  * Support Login using non organization id such as MSA account, live ids.
+* README updates
+  * Added Redis Cache in the home page features list
+  * Added Docker Azure CLI as an installation option
+
 ## 2015.09.11 Version 0.9.9
 * Redis Cache
   * Implemented create, set, show, list, list-keys, renew-key and delete commands
