@@ -10992,6 +10992,359 @@
                   "description": "the subscription id"
                 }
               ]
+            },
+            {
+              "name": "resize",
+              "description": "Resizes the cluster",
+              "fullName": "hdinsight cluster resize",
+              "usage": "[options] <resourceGroupName> <clusterName> <targetInstanceCount>",
+              "filePath": "commands/arm/hdinsight/hdinsight._js",
+              "options": [
+                {
+                  "flags": "-v, --verbose",
+                  "required": 0,
+                  "optional": 0,
+                  "bool": true,
+                  "short": "-v",
+                  "long": "--verbose",
+                  "description": "use verbose output"
+                },
+                {
+                  "flags": "-vv",
+                  "required": 0,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "-vv",
+                  "description": "more verbose with debug output"
+                },
+                {
+                  "flags": "--json",
+                  "required": 0,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--json",
+                  "description": "use json output"
+                },
+                {
+                  "flags": "-g, --resourceGroupName <resourceGroupName>",
+                  "required": -25,
+                  "optional": 0,
+                  "bool": true,
+                  "short": "-g",
+                  "long": "--resourceGroupName",
+                  "description": "Azure resource group name for the cluster"
+                },
+                {
+                  "flags": "-c, --clusterName <clusterName>",
+                  "required": -19,
+                  "optional": 0,
+                  "bool": true,
+                  "short": "-c",
+                  "long": "--clusterName",
+                  "description": "HDInsight cluster name"
+                },
+                {
+                  "flags": "--targetInstanceCount <targetInstanceCount>",
+                  "required": -23,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--targetInstanceCount",
+                  "description": "Target instance count."
+                },
+                {
+                  "flags": "-s, --subscription <id>",
+                  "required": -20,
+                  "optional": 0,
+                  "bool": true,
+                  "short": "-s",
+                  "long": "--subscription",
+                  "description": "the subscription id"
+                }
+              ]
+            },
+            {
+              "name": "enable-http-access",
+              "description": "Enable HTTP access for cluster",
+              "fullName": "hdinsight cluster enable-http-access",
+              "usage": "[options] <resourceGroupName> <clusterName> <userName> <password>",
+              "filePath": "commands/arm/hdinsight/hdinsight._js",
+              "options": [
+                {
+                  "flags": "-v, --verbose",
+                  "required": 0,
+                  "optional": 0,
+                  "bool": true,
+                  "short": "-v",
+                  "long": "--verbose",
+                  "description": "use verbose output"
+                },
+                {
+                  "flags": "-vv",
+                  "required": 0,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "-vv",
+                  "description": "more verbose with debug output"
+                },
+                {
+                  "flags": "--json",
+                  "required": 0,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--json",
+                  "description": "use json output"
+                },
+                {
+                  "flags": "-g, --resourceGroupName <resourceGroupName>",
+                  "required": -25,
+                  "optional": 0,
+                  "bool": true,
+                  "short": "-g",
+                  "long": "--resourceGroupName",
+                  "description": "Azure resource group name for the cluster"
+                },
+                {
+                  "flags": "-c, --clusterName <clusterName>",
+                  "required": -19,
+                  "optional": 0,
+                  "bool": true,
+                  "short": "-c",
+                  "long": "--clusterName",
+                  "description": "HDInsight cluster name"
+                },
+                {
+                  "flags": "--userName <userName>",
+                  "required": -12,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--userName",
+                  "description": "Cluster username"
+                },
+                {
+                  "flags": "--password <password>",
+                  "required": -12,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--password",
+                  "description": "Cluster password"
+                },
+                {
+                  "flags": "-s, --subscription <id>",
+                  "required": -20,
+                  "optional": 0,
+                  "bool": true,
+                  "short": "-s",
+                  "long": "--subscription",
+                  "description": "the subscription id"
+                }
+              ]
+            },
+            {
+              "name": "disable-http-access",
+              "description": "Disable HTTP access for cluster",
+              "fullName": "hdinsight cluster disable-http-access",
+              "usage": "[options] <resourceGroupName> <clusterName>",
+              "filePath": "commands/arm/hdinsight/hdinsight._js",
+              "options": [
+                {
+                  "flags": "-v, --verbose",
+                  "required": 0,
+                  "optional": 0,
+                  "bool": true,
+                  "short": "-v",
+                  "long": "--verbose",
+                  "description": "use verbose output"
+                },
+                {
+                  "flags": "-vv",
+                  "required": 0,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "-vv",
+                  "description": "more verbose with debug output"
+                },
+                {
+                  "flags": "--json",
+                  "required": 0,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--json",
+                  "description": "use json output"
+                },
+                {
+                  "flags": "-g, --resourceGroupName <resourceGroupName>",
+                  "required": -25,
+                  "optional": 0,
+                  "bool": true,
+                  "short": "-g",
+                  "long": "--resourceGroupName",
+                  "description": "Azure resource group name for the cluster"
+                },
+                {
+                  "flags": "-c, --clusterName <clusterName>",
+                  "required": -19,
+                  "optional": 0,
+                  "bool": true,
+                  "short": "-c",
+                  "long": "--clusterName",
+                  "description": "HDInsight cluster name"
+                },
+                {
+                  "flags": "-s, --subscription <id>",
+                  "required": -20,
+                  "optional": 0,
+                  "bool": true,
+                  "short": "-s",
+                  "long": "--subscription",
+                  "description": "the subscription id"
+                }
+              ]
+            },
+            {
+              "name": "enable-rdp-access",
+              "description": "Enable RDP access for cluster",
+              "fullName": "hdinsight cluster enable-rdp-access",
+              "usage": "[options] <resourceGroupName> <clusterName> <rdpUserName> <rdpPassword> <rdpExpiryDate>",
+              "filePath": "commands/arm/hdinsight/hdinsight._js",
+              "options": [
+                {
+                  "flags": "-v, --verbose",
+                  "required": 0,
+                  "optional": 0,
+                  "bool": true,
+                  "short": "-v",
+                  "long": "--verbose",
+                  "description": "use verbose output"
+                },
+                {
+                  "flags": "-vv",
+                  "required": 0,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "-vv",
+                  "description": "more verbose with debug output"
+                },
+                {
+                  "flags": "--json",
+                  "required": 0,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--json",
+                  "description": "use json output"
+                },
+                {
+                  "flags": "-g, --resourceGroupName <resourceGroupName>",
+                  "required": -25,
+                  "optional": 0,
+                  "bool": true,
+                  "short": "-g",
+                  "long": "--resourceGroupName",
+                  "description": "Azure resource group name for the cluster"
+                },
+                {
+                  "flags": "-c, --clusterName <clusterName>",
+                  "required": -19,
+                  "optional": 0,
+                  "bool": true,
+                  "short": "-c",
+                  "long": "--clusterName",
+                  "description": "HDInsight cluster name"
+                },
+                {
+                  "flags": "--rdpUserName <rdpUserName>",
+                  "required": -15,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--rdpUserName",
+                  "description": "RDP username"
+                },
+                {
+                  "flags": "--rdpPassword <rdpPassword>",
+                  "required": -15,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--rdpPassword",
+                  "description": "RDP password"
+                },
+                {
+                  "flags": "--rdpExpiryDate <rdpExpiryDate>",
+                  "required": -17,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--rdpExpiryDate",
+                  "description": "RDP access expiry date"
+                },
+                {
+                  "flags": "-s, --subscription <id>",
+                  "required": -20,
+                  "optional": 0,
+                  "bool": true,
+                  "short": "-s",
+                  "long": "--subscription",
+                  "description": "the subscription id"
+                }
+              ]
+            },
+            {
+              "name": "disable-rdp-access",
+              "description": "Disable HTTP access for cluster",
+              "fullName": "hdinsight cluster disable-rdp-access",
+              "usage": "[options] <resourceGroupName> <clusterName>",
+              "filePath": "commands/arm/hdinsight/hdinsight._js",
+              "options": [
+                {
+                  "flags": "-v, --verbose",
+                  "required": 0,
+                  "optional": 0,
+                  "bool": true,
+                  "short": "-v",
+                  "long": "--verbose",
+                  "description": "use verbose output"
+                },
+                {
+                  "flags": "-vv",
+                  "required": 0,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "-vv",
+                  "description": "more verbose with debug output"
+                },
+                {
+                  "flags": "--json",
+                  "required": 0,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--json",
+                  "description": "use json output"
+                },
+                {
+                  "flags": "-g, --resourceGroupName <resourceGroupName>",
+                  "required": -25,
+                  "optional": 0,
+                  "bool": true,
+                  "short": "-g",
+                  "long": "--resourceGroupName",
+                  "description": "Azure resource group name for the cluster"
+                },
+                {
+                  "flags": "-c, --clusterName <clusterName>",
+                  "required": -19,
+                  "optional": 0,
+                  "bool": true,
+                  "short": "-c",
+                  "long": "--clusterName",
+                  "description": "HDInsight cluster name"
+                },
+                {
+                  "flags": "-s, --subscription <id>",
+                  "required": -20,
+                  "optional": 0,
+                  "bool": true,
+                  "short": "-s",
+                  "long": "--subscription",
+                  "description": "the subscription id"
+                }
+              ]
             }
           ],
           "categories": {}
