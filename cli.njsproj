@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{e6309b69-d527-408b-8835-86367f414dba}</ProjectGuid>
     <ProjectHome />
-    <ProjectView>ProjectFiles</ProjectView>
+    <ProjectView>ShowAllFiles</ProjectView>
     <StartupFile>bin\azure.js</StartupFile>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
@@ -13,38 +13,17 @@
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
     <StartWebBrowser>True</StartWebBrowser>
-    <ScriptArguments>
-    </ScriptArguments>
+    <ScriptArguments>rediscache create -g xplatTestCacheRG -n testcache32 -m AllKeysRandom -l "West US" -z C1 -e</ScriptArguments>
     <Environment>
     </Environment>
+    <NodeExeArguments>bin/azure</NodeExeArguments>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
   <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
   <ItemGroup>
     <Content Include="CONTRIBUTORS.txt" />
-    <Content Include="lib\commands\arm\hdinsight\hdiClient._js" />
-    <Content Include="lib\commands\arm\hdinsight\hdiConstants._js" />
-    <Content Include="lib\commands\arm\hdinsight\hdiCustomization._js" />
-    <Content Include="lib\commands\arm\hdinsight\hdinsight._js" />
-    <Content Include="lib\commands\arm\hdinsight\hdiUtils._js" />
-    <Content Include="lib\commands\arm\vm\networkNic._js" />
-    <Content Include="lib\commands\arm\vm\networkPublicIP._js" />
-    <Content Include="lib\commands\arm\vm\networkVNet._js" />
-    <Content Include="lib\commands\arm\vm\networkVNetSubnet._js" />
-    <Content Include="lib\commands\arm\vm\virtualMachine._js" />
-    <Content Include="lib\commands\arm\vm\vm._js" />
-    <Content Include="lib\commands\arm\vm\vmAvailabilitySetProfile._js" />
-    <Content Include="lib\commands\arm\vm\vmClient._js" />
-    <Content Include="lib\commands\arm\vm\vmConstants._js" />
-    <Content Include="lib\commands\arm\vm\vmDiagnosticsProfile._js" />
-    <Content Include="lib\commands\arm\vm\vmExtensionProfile._js" />
-    <Content Include="lib\commands\arm\vm\vmHardwareProfile._js" />
-    <Content Include="lib\commands\arm\vm\vmImage._js" />
-    <Content Include="lib\commands\arm\vm\vmNetworkProfile._js" />
-    <Content Include="lib\commands\arm\vm\vmOsProfile._js" />
-    <Content Include="lib\commands\arm\vm\vmProfile._js" />
-    <Content Include="lib\commands\arm\vm\vmShowUtil._js" />
-    <Content Include="lib\commands\arm\vm\vmStorageProfile._js" />
+    <Content Include="lib\commands\arm\rediscache\rediscache._js" />
+    <Content Include="lib\commands\arm\rediscache\rediscacheUtils._js" />
     <Content Include="LICENSE.txt" />
     <Content Include="package.json" />
     <Content Include="CONTRIBUTING.md" />
@@ -67,10 +46,6 @@
     <Compile Include="lib\autocomplete.js" />
     <Compile Include="lib\cli.js" />
     <Compile Include="lib\cmdLoader.js" />
-    <Compile Include="lib\commands\arm\temporary\hdinsight2.js" />
-    <Compile Include="lib\commands\arm\temporary\hdinsightjob2.js" />
-    <Compile Include="lib\commands\arm\temporary\hDInsightJobManagementClient.js" />
-    <Compile Include="lib\commands\arm\temporary\hDInsightManagementClient.js" />
     <Compile Include="lib\util\authentication\adalAuthForUser.js" />
     <Compile Include="lib\util\authentication\adalAuthForServicePrincipal.js" />
     <Compile Include="lib\util\profile\account.js" />
@@ -173,7 +148,6 @@
     <Compile Include="lib\util\profile\profile.js" />
     <Compile Include="lib\util\profile\publishSettings.js" />
     <Compile Include="lib\util\profile\subscription.js" />
-    <Compile Include="scripts\warn-existing-streamline-files.js" />
     <Compile Include="test\commands\cli.account-tests.js" />
     <Compile Include="test\commands\cli.account.affinitygroup-tests.js">
       <TestFramework>
@@ -457,6 +431,7 @@
     <Folder Include="lib\commands\arm\network" />
     <Folder Include="lib\commands\arm\hdinsight\" />
     <Folder Include="lib\commands\arm\providers" />
+    <Folder Include="lib\commands\arm\rediscache\" />
     <Folder Include="lib\commands\arm\resource" />
     <Folder Include="lib\commands\arm\role" />
     <Folder Include="lib\commands\arm\tag" />
