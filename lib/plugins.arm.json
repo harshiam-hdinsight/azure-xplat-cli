@@ -13756,7 +13756,7 @@
               "name": "create",
               "description": "Create a cluster in a resource group",
               "fullName": "hdinsight cluster create",
-              "usage": "[options] <resourceGroupName> <clusterName> <location> <osType>",
+              "usage": "[options] <clusterName>",
               "filePath": "commands/arm/hdinsight/hdinsight._js",
               "options": [
                 {
@@ -13907,6 +13907,14 @@
                   "bool": true,
                   "long": "--sshPassword",
                   "description": "SSH password"
+                },
+                {
+                  "flags": "--sshPublicKey <sshPublicKey>",
+                  "required": -16,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--sshPublicKey",
+                  "description": "SSH public key"
                 },
                 {
                   "flags": "--rdpUserName <rdpUserName>",
