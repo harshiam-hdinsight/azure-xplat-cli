@@ -14604,11 +14604,21 @@
                   "description": "The subscription id"
                 }
               ]
-            },
+            }
+          ],
+          "categories": {}
+        },
+        "config": {
+          "name": "config",
+          "description": "Commands to manage HDInsight cluster configuration",
+          "fullName": "hdinsight config",
+          "usage": "[options] [command]",
+          "options": [],
+          "commands": [
             {
-              "name": "create-config",
+              "name": "create",
               "description": "Creates a persisted Azure HDInsight cluster configuration file.",
-              "fullName": "hdinsight cluster create-config",
+              "fullName": "hdinsight config create",
               "usage": "[options] <configFilePath> <overwrite>",
               "filePath": "commands/arm/hdinsight/hdinsight._js",
               "options": [
@@ -14656,9 +14666,9 @@
               ]
             },
             {
-              "name": "add-config",
+              "name": "add-hadoop-config",
               "description": "Adds a Hadoop configuration value customization or a Hive shared library customization to an HDInsight cluster configuration.",
-              "fullName": "hdinsight cluster add-config",
+              "fullName": "hdinsight config add-hadoop-config",
               "usage": "[options] <configFilePath>",
               "filePath": "commands/arm/hdinsight/hdinsight._js",
               "options": [
@@ -14821,7 +14831,7 @@
             {
               "name": "add-script-action",
               "description": "Adds a HDInsight script action.",
-              "fullName": "hdinsight cluster add-script-action",
+              "fullName": "hdinsight config add-script-action",
               "usage": "[options] <configFilePath>",
               "filePath": "commands/arm/hdinsight/hdinsight._js",
               "options": [
