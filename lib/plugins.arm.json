@@ -13821,6 +13821,22 @@
                   "description": "HDInsight cluster operating system - 'windows' or 'linux'"
                 },
                 {
+                  "flags": "--version <version>",
+                  "required": -11,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--version",
+                  "description": "HDInsight cluster version"
+                },
+                {
+                  "flags": "--clusterType <clusterType>",
+                  "required": -15,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--clusterType",
+                  "description": "HDInsight cluster type. Hadoop | HBase | Spark | Storm"
+                },
+                {
                   "flags": "--defaultStorageAccountName <storageAccountName>",
                   "required": -29,
                   "optional": 0,
@@ -13858,7 +13874,7 @@
                   "optional": 0,
                   "bool": true,
                   "long": "--headNodeSize",
-                  "description": "NOTE: Head node size for the cluster (only allowed for 'windows' ostype)"
+                  "description": "(optional) Head node size for the cluster"
                 },
                 {
                   "flags": "--workerNodeSize <workerNodeSize>",
@@ -13866,7 +13882,7 @@
                   "optional": 0,
                   "bool": true,
                   "long": "--workerNodeSize",
-                  "description": "NOTE: Data node size for the cluster (only allowed for 'windows' ostype)"
+                  "description": "(optional) Worker node size for the cluster)"
                 },
                 {
                   "flags": "--zookeeperNodeSize <zookeeperNodeSize>",
@@ -13874,7 +13890,7 @@
                   "optional": 0,
                   "bool": true,
                   "long": "--zookeeperNodeSize",
-                  "description": "NOTE: Zookeeper node size for the cluster (only allowed for 'windows' ostype)"
+                  "description": "(optional) Zookeeper node size for the cluster"
                 },
                 {
                   "flags": "--userName <userName>",
@@ -13898,7 +13914,7 @@
                   "optional": 0,
                   "bool": true,
                   "long": "--sshUserName",
-                  "description": "SSH username"
+                  "description": "SSH username (only for Linux clusters)"
                 },
                 {
                   "flags": "--sshPassword <sshPassword>",
@@ -13906,7 +13922,7 @@
                   "optional": 0,
                   "bool": true,
                   "long": "--sshPassword",
-                  "description": "SSH password"
+                  "description": "SSH password (only for Linux clusters)"
                 },
                 {
                   "flags": "--sshPublicKey <sshPublicKey>",
@@ -13914,7 +13930,7 @@
                   "optional": 0,
                   "bool": true,
                   "long": "--sshPublicKey",
-                  "description": "SSH public key"
+                  "description": "SSH public key (only for Linux clusters)"
                 },
                 {
                   "flags": "--rdpUserName <rdpUserName>",
@@ -13922,7 +13938,7 @@
                   "optional": 0,
                   "bool": true,
                   "long": "--rdpUserName",
-                  "description": "RDP username"
+                  "description": "RDP username (only for Windows clusters)"
                 },
                 {
                   "flags": "--rdpPassword <rdpPassword>",
@@ -13930,7 +13946,7 @@
                   "optional": 0,
                   "bool": true,
                   "long": "--rdpPassword",
-                  "description": "RDP password"
+                  "description": "RDP password (only for Windows clusters)"
                 },
                 {
                   "flags": "--rdpAccessExpiry <rdpAccessExpiry>",
@@ -13938,23 +13954,7 @@
                   "optional": 0,
                   "bool": true,
                   "long": "--rdpAccessExpiry",
-                  "description": "RDP access expiry"
-                },
-                {
-                  "flags": "--version <version>",
-                  "required": -11,
-                  "optional": 0,
-                  "bool": true,
-                  "long": "--version",
-                  "description": "HDInsight cluster version"
-                },
-                {
-                  "flags": "--clusterType <clusterType>",
-                  "required": -15,
-                  "optional": 0,
-                  "bool": true,
-                  "long": "--clusterType",
-                  "description": "HDInsight cluster type. Hadoop | HBase | Spark | Storm"
+                  "description": "RDP access expiry (only for Windows clusters)"
                 },
                 {
                   "flags": "--virtualNetworkId <virtualNetworkId>",
@@ -13962,7 +13962,7 @@
                   "optional": 0,
                   "bool": true,
                   "long": "--virtualNetworkId",
-                  "description": "NOTE: Virtual network ID for the cluster (only allowed for 'Linux' ostype)"
+                  "description": "(optional) Virtual network ID for the cluster (only for Linux clusters) "
                 },
                 {
                   "flags": "--subnetName <subnetName>",
@@ -13970,7 +13970,7 @@
                   "optional": 0,
                   "bool": true,
                   "long": "--subnetName",
-                  "description": "NOTE: Subnet for the cluster (only allowed for 'Linux' ostype)"
+                  "description": "(optional) Subnet for the cluster (only for Linux clusters)"
                 },
                 {
                   "flags": "--additionalStorageAccounts <additionalStorageAccounts>",
@@ -13978,71 +13978,71 @@
                   "optional": 0,
                   "bool": true,
                   "long": "--additionalStorageAccounts",
-                  "description": "Optional additional storage accounts. Can be multiple. In the format of 'accountName=accountKey'. For example, --additionalStorageAccounts \"acc1\"=\"key1\";\"acc2\"=\"key2\""
+                  "description": "Optional additional storage accounts. Can be multiple. In the format of 'accountName::accountKey'. For example, --additionalStorageAccounts \"acc1::key1;acc2::key2\""
                 },
                 {
-                  "flags": "--externalHiveMetastoreSqlServerName <externalHiveMetastoreSqlServerName>",
-                  "required": -38,
+                  "flags": "--hiveMetastoreSqlServerName <hiveMetastoreSqlServerName>",
+                  "required": -30,
                   "optional": 0,
                   "bool": true,
-                  "long": "--externalHiveMetastoreSqlServerName",
-                  "description": "SQL Server name for the external metastore for Hive"
+                  "long": "--hiveMetastoreSqlServerName",
+                  "description": "(optional) SQL Server name for the external metastore for Hive"
                 },
                 {
-                  "flags": "--externalHiveMetastoreDatabaseName <externalHiveMetastoreDatabaseName>",
-                  "required": -37,
+                  "flags": "--hiveMetastoreDatabaseName <hiveMetastoreDatabaseName>",
+                  "required": -29,
                   "optional": 0,
                   "bool": true,
-                  "long": "--externalHiveMetastoreDatabaseName",
-                  "description": "Database name for the external metastore for Hive"
+                  "long": "--hiveMetastoreDatabaseName",
+                  "description": "(optional) Database name for the external metastore for Hive"
                 },
                 {
-                  "flags": "--externalHiveMetastoreUserName <externalHiveMetastoreUserName>",
-                  "required": -33,
+                  "flags": "--hiveMetastoreUserName <hiveMetastoreUserName>",
+                  "required": -25,
                   "optional": 0,
                   "bool": true,
-                  "long": "--externalHiveMetastoreUserName",
-                  "description": "Database username for the external metastore for Hive"
+                  "long": "--hiveMetastoreUserName",
+                  "description": "(optional) Database username for the external metastore for Hive"
                 },
                 {
-                  "flags": "--externalHiveMetastorePassword <externalHiveMetastorePassword>",
-                  "required": -33,
+                  "flags": "--hiveMetastorePassword <hiveMetastorePassword>",
+                  "required": -25,
                   "optional": 0,
                   "bool": true,
-                  "long": "--externalHiveMetastorePassword",
-                  "description": "Database password for the external metastore for Hive"
+                  "long": "--hiveMetastorePassword",
+                  "description": "(optional) Database password for the external metastore for Hive"
                 },
                 {
-                  "flags": "--externalOozieMetastoreSqlServerName <externalOozieMetastoreSqlServerName>",
-                  "required": -39,
+                  "flags": "--oozieMetastoreSqlServerName <oozieMetastoreSqlServerName>",
+                  "required": -31,
                   "optional": 0,
                   "bool": true,
-                  "long": "--externalOozieMetastoreSqlServerName",
-                  "description": "SQL Server name for the external metastore for Oozie"
+                  "long": "--oozieMetastoreSqlServerName",
+                  "description": "(optional) SQL Server name for the external metastore for Oozie"
                 },
                 {
-                  "flags": "--externalOozieMetastoreDatabaseName <externalOozieMetastoreDatabaseName>",
-                  "required": -38,
+                  "flags": "--oozieMetastoreDatabaseName <oozieMetastoreDatabaseName>",
+                  "required": -30,
                   "optional": 0,
                   "bool": true,
-                  "long": "--externalOozieMetastoreDatabaseName",
-                  "description": "Database name for the external metastore for Oozie"
+                  "long": "--oozieMetastoreDatabaseName",
+                  "description": "(optional) Database name for the external metastore for Oozie"
                 },
                 {
-                  "flags": "--externalOozieMetastoreUserName <externalOozieMetastoreUserName>",
-                  "required": -34,
+                  "flags": "--oozieMetastoreUserName <oozieMetastoreUserName>",
+                  "required": -26,
                   "optional": 0,
                   "bool": true,
-                  "long": "--externalOozieMetastoreUserName",
-                  "description": "Database username for the external metastore for Oozie"
+                  "long": "--oozieMetastoreUserName",
+                  "description": "(optional) Database username for the external metastore for Oozie"
                 },
                 {
-                  "flags": "--externalOozieMetastorePassword <externalOozieMetastorePassword>",
-                  "required": -34,
+                  "flags": "--oozieMetastorePassword <oozieMetastorePassword>",
+                  "required": -26,
                   "optional": 0,
                   "bool": true,
-                  "long": "--externalOozieMetastorePassword",
-                  "description": "Database password for the external metastore for Oozie"
+                  "long": "--oozieMetastorePassword",
+                  "description": "(optional) Database password for the external metastore for Oozie"
                 },
                 {
                   "flags": "--configurationPath <configurationPath>",
@@ -14050,7 +14050,7 @@
                   "optional": 0,
                   "bool": true,
                   "long": "--configurationPath",
-                  "description": "HDInsight cluster configuration file path"
+                  "description": "(optional) HDInsight cluster configuration file path"
                 },
                 {
                   "flags": "-s, --subscription <id>",
@@ -14067,7 +14067,7 @@
               "name": "delete",
               "description": "Delete a cluster",
               "fullName": "hdinsight cluster delete",
-              "usage": "[options] <clusterName> <location> <osType>",
+              "usage": "[options] <clusterName>",
               "filePath": "commands/arm/hdinsight/hdinsight._js",
               "options": [
                 {
@@ -14094,6 +14094,15 @@
                   "bool": true,
                   "long": "--json",
                   "description": "use json output"
+                },
+                {
+                  "flags": "-g, --resourceGroupName <resourceGroupName>",
+                  "required": -25,
+                  "optional": 0,
+                  "bool": true,
+                  "short": "-g",
+                  "long": "--resourceGroupName",
+                  "description": "Azure resource group name for the cluster"
                 },
                 {
                   "flags": "--clusterName <clusterName>",
@@ -14134,7 +14143,7 @@
               "name": "show",
               "description": "Show cluster details",
               "fullName": "hdinsight cluster show",
-              "usage": "[options] <resourceGrupName> <clusterName>",
+              "usage": "[options] <clusterName>",
               "filePath": "commands/arm/hdinsight/hdinsight._js",
               "options": [
                 {
@@ -14195,7 +14204,7 @@
               "name": "list",
               "description": "List all the clusters (in a specific resource group if provided) .",
               "fullName": "hdinsight cluster list",
-              "usage": "[options] <resourceGroupName>",
+              "usage": "[options]",
               "filePath": "commands/arm/hdinsight/hdinsight._js",
               "options": [
                 {
@@ -14247,7 +14256,7 @@
               "name": "resize",
               "description": "Resizes the cluster",
               "fullName": "hdinsight cluster resize",
-              "usage": "[options] <resourceGroupName> <clusterName> <targetInstanceCount>",
+              "usage": "[options] <clusterName> <targetInstanceCount>",
               "filePath": "commands/arm/hdinsight/hdinsight._js",
               "options": [
                 {
@@ -14316,7 +14325,7 @@
               "name": "enable-http-access",
               "description": "Enable HTTP access for cluster",
               "fullName": "hdinsight cluster enable-http-access",
-              "usage": "[options] <resourceGroupName> <clusterName> <userName> <password>",
+              "usage": "[options] <clusterName> <userName> <password>",
               "filePath": "commands/arm/hdinsight/hdinsight._js",
               "options": [
                 {
@@ -14393,7 +14402,7 @@
               "name": "disable-http-access",
               "description": "Disable HTTP access for cluster",
               "fullName": "hdinsight cluster disable-http-access",
-              "usage": "[options] <resourceGroupName> <clusterName>",
+              "usage": "[options] <clusterName>",
               "filePath": "commands/arm/hdinsight/hdinsight._js",
               "options": [
                 {
@@ -14454,7 +14463,7 @@
               "name": "enable-rdp-access",
               "description": "Enable RDP access for cluster",
               "fullName": "hdinsight cluster enable-rdp-access",
-              "usage": "[options] <resourceGroupName> <clusterName> <rdpUserName> <rdpPassword> <rdpExpiryDate>",
+              "usage": "[options] <clusterName> <rdpUserName> <rdpPassword> <rdpExpiryDate>",
               "filePath": "commands/arm/hdinsight/hdinsight._js",
               "options": [
                 {
@@ -14539,7 +14548,7 @@
               "name": "disable-rdp-access",
               "description": "Disable HTTP access for cluster",
               "fullName": "hdinsight cluster disable-rdp-access",
-              "usage": "[options] <resourceGroupName> <clusterName>",
+              "usage": "[options] <clusterName>",
               "filePath": "commands/arm/hdinsight/hdinsight._js",
               "options": [
                 {
