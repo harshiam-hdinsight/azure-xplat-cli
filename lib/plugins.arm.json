@@ -13818,7 +13818,7 @@
                   "bool": true,
                   "short": "-y",
                   "long": "--osType",
-                  "description": "HDInsight cluster operating system - 'windows' or 'linux'"
+                  "description": "HDInsight cluster operating system - 'Windows' or 'Linux'"
                 },
                 {
                   "flags": "--version <version>",
@@ -13861,20 +13861,20 @@
                   "description": "Container in the storage account to use for HDInsight default storage"
                 },
                 {
-                  "flags": "--workerNodeCount <workerNodeCount>",
-                  "required": -19,
-                  "optional": 0,
-                  "bool": true,
-                  "long": "--workerNodeCount",
-                  "description": "Number of worker nodes to use for the cluster"
-                },
-                {
                   "flags": "--headNodeSize <headNodeSize>",
                   "required": -16,
                   "optional": 0,
                   "bool": true,
                   "long": "--headNodeSize",
                   "description": "(optional) Head node size for the cluster"
+                },
+                {
+                  "flags": "--workerNodeCount <workerNodeCount>",
+                  "required": -19,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--workerNodeCount",
+                  "description": "Number of worker nodes to use for the cluster"
                 },
                 {
                   "flags": "--workerNodeSize <workerNodeSize>",
@@ -13954,7 +13954,7 @@
                   "optional": 0,
                   "bool": true,
                   "long": "--rdpAccessExpiry",
-                  "description": "RDP access expiry (only for Windows clusters)"
+                  "description": "RDP access expiry. For example 12/12/2015 (only for Windows clusters)"
                 },
                 {
                   "flags": "--virtualNetworkId <virtualNetworkId>",
@@ -13962,7 +13962,7 @@
                   "optional": 0,
                   "bool": true,
                   "long": "--virtualNetworkId",
-                  "description": "(optional) Virtual network ID for the cluster (only for Linux clusters) "
+                  "description": "(optional) Virtual network ID for the cluster. Value is a GUID for Windows cluster and ARM resource ID for Linux cluster) "
                 },
                 {
                   "flags": "--subnetName <subnetName>",
@@ -13970,7 +13970,7 @@
                   "optional": 0,
                   "bool": true,
                   "long": "--subnetName",
-                  "description": "(optional) Subnet for the cluster (only for Linux clusters)"
+                  "description": "(optional) Subnet for the cluster"
                 },
                 {
                   "flags": "--additionalStorageAccounts <additionalStorageAccounts>",
@@ -13978,14 +13978,14 @@
                   "optional": 0,
                   "bool": true,
                   "long": "--additionalStorageAccounts",
-                  "description": "Optional additional storage accounts. Can be multiple. In the format of 'accountName::accountKey'. For example, --additionalStorageAccounts \"acc1::key1;acc2::key2\""
+                  "description": "(optional) Additional storage accounts. Can be multiple. In the format of 'accountName#accountKey'. For example, --additionalStorageAccounts \"acc1#key1;acc2#key2\""
                 },
                 {
-                  "flags": "--hiveMetastoreSqlServerName <hiveMetastoreSqlServerName>",
-                  "required": -30,
+                  "flags": "--hiveMetastoreServerName <hiveMetastoreServerName>",
+                  "required": -27,
                   "optional": 0,
                   "bool": true,
-                  "long": "--hiveMetastoreSqlServerName",
+                  "long": "--hiveMetastoreServerName",
                   "description": "(optional) SQL Server name for the external metastore for Hive"
                 },
                 {
@@ -14013,11 +14013,11 @@
                   "description": "(optional) Database password for the external metastore for Hive"
                 },
                 {
-                  "flags": "--oozieMetastoreSqlServerName <oozieMetastoreSqlServerName>",
-                  "required": -31,
+                  "flags": "--oozieMetastoreServerName <oozieMetastoreServerName>",
+                  "required": -28,
                   "optional": 0,
                   "bool": true,
-                  "long": "--oozieMetastoreSqlServerName",
+                  "long": "--oozieMetastoreServerName",
                   "description": "(optional) SQL Server name for the external metastore for Oozie"
                 },
                 {
@@ -14060,6 +14060,14 @@
                   "short": "-s",
                   "long": "--subscription",
                   "description": "The subscription id"
+                },
+                {
+                  "flags": "--tags <tags>",
+                  "required": -8,
+                  "optional": 0,
+                  "bool": true,
+                  "long": "--tags",
+                  "description": "Tags to set to the cluster. Can be multiple. In the format of 'name=value'. Name is required and value is optional. For example, --tags tag1=value1;tag2"
                 }
               ]
             },
@@ -14666,9 +14674,9 @@
               ]
             },
             {
-              "name": "add-hadoop-config",
-              "description": "Adds a Hadoop configuration value customization or a Hive shared library customization to an HDInsight cluster configuration.",
-              "fullName": "hdinsight config add-hadoop-config",
+              "name": "add-config-values",
+              "description": "Adds a Hadoop configuration value customization or a Hive shared library customization to an HDInsight cluster configuration. Each component config is in the format of 'name=value'. For example, parameter1=value1;parameter2=value2",
+              "fullName": "hdinsight config add-config-values",
               "usage": "[options] <configFilePath>",
               "filePath": "commands/arm/hdinsight/hdinsight._js",
               "options": [
@@ -14711,7 +14719,7 @@
                   "optional": 0,
                   "bool": true,
                   "long": "--core-site",
-                  "description": "In the format of 'name=value'. For example, parameter1=value1;parameter2=value2"
+                  "description": "Core component config values"
                 },
                 {
                   "flags": "--hive-site <hive-site>",
@@ -14719,7 +14727,7 @@
                   "optional": 0,
                   "bool": true,
                   "long": "--hive-site",
-                  "description": "In the format of 'name=value'. For example, parameter1=value1;parameter2=value2"
+                  "description": "Hive component config values"
                 },
                 {
                   "flags": "--hive-env <hive-env>",
@@ -14727,7 +14735,7 @@
                   "optional": 0,
                   "bool": true,
                   "long": "--hive-env",
-                  "description": "In the format of 'name=value'. For example, parameter1=value1;parameter2=value2"
+                  "description": "Hadoop component config values"
                 },
                 {
                   "flags": "--hdfs-site <hdfs-site>",
@@ -14735,7 +14743,7 @@
                   "optional": 0,
                   "bool": true,
                   "long": "--hdfs-site",
-                  "description": "In the format of 'name=value'. For example, parameter1=value1;parameter2=value2"
+                  "description": "Hadoop component config values"
                 },
                 {
                   "flags": "--hbase-env <hbase-env>",
@@ -14743,7 +14751,7 @@
                   "optional": 0,
                   "bool": true,
                   "long": "--hbase-env",
-                  "description": "In the format of 'name=value'. For example, parameter1=value1;parameter2=value2"
+                  "description": "Hadoop component config values"
                 },
                 {
                   "flags": "--hbase-site <hbase-site>",
@@ -14751,7 +14759,7 @@
                   "optional": 0,
                   "bool": true,
                   "long": "--hbase-site",
-                  "description": "In the format of 'name=value'. For example, parameter1=value1;parameter2=value2"
+                  "description": "Hadoop component config values"
                 },
                 {
                   "flags": "--mapred-site <mapred-site>",
@@ -14759,7 +14767,7 @@
                   "optional": 0,
                   "bool": true,
                   "long": "--mapred-site",
-                  "description": "In the format of 'name=value'. For example, parameter1=value1;parameter2=value2"
+                  "description": "Hadoop component config values"
                 },
                 {
                   "flags": "--oozie-env <oozie-env>",
@@ -14767,7 +14775,7 @@
                   "optional": 0,
                   "bool": true,
                   "long": "--oozie-env",
-                  "description": "In the format of 'name=value'. For example, parameter1=value1;parameter2=value2"
+                  "description": "Hadoop component config values"
                 },
                 {
                   "flags": "--oozie-site <oozie-site>",
@@ -14775,7 +14783,7 @@
                   "optional": 0,
                   "bool": true,
                   "long": "--oozie-site",
-                  "description": "In the format of 'name=value'. For example, parameter1=value1;parameter2=value2"
+                  "description": "Hadoop component config values"
                 },
                 {
                   "flags": "--storm-site <storm-site>",
@@ -14783,7 +14791,7 @@
                   "optional": 0,
                   "bool": true,
                   "long": "--storm-site",
-                  "description": "In the format of 'name=value'. For example, parameter1=value1;parameter2=value2"
+                  "description": "Hadoop component config values"
                 },
                 {
                   "flags": "--tez-site <tez-site>",
@@ -14791,7 +14799,7 @@
                   "optional": 0,
                   "bool": true,
                   "long": "--tez-site",
-                  "description": "In the format of 'name=value'. For example, parameter1=value1;parameter2=value2"
+                  "description": "Hadoop component config values"
                 },
                 {
                   "flags": "--webhcat-site <webhcat-site>",
@@ -14799,7 +14807,7 @@
                   "optional": 0,
                   "bool": true,
                   "long": "--webhcat-site",
-                  "description": "In the format of 'name=value'. For example, parameter1=value1;parameter2=value2"
+                  "description": "Hadoop component config values"
                 },
                 {
                   "flags": "--gateway <gateway>",
@@ -14807,7 +14815,7 @@
                   "optional": 0,
                   "bool": true,
                   "long": "--gateway",
-                  "description": "In the format of 'name=value'. For example, parameter1=value1;parameter2=value2"
+                  "description": "Hadoop component config values"
                 },
                 {
                   "flags": "--yarn <yarn>",
@@ -14815,7 +14823,7 @@
                   "optional": 0,
                   "bool": true,
                   "long": "--yarn",
-                  "description": "In the format of 'name=value'. For example, parameter1=value1;parameter2=value2"
+                  "description": "Hadoop component config values"
                 },
                 {
                   "flags": "-s, --subscription <id>",
@@ -14874,7 +14882,7 @@
                   "optional": 0,
                   "bool": true,
                   "long": "--nodeType",
-                  "description": "Specifies the node on which this cmdlet applies the action. Example: HeadNode | WorkerNode | ZookeeperNode"
+                  "description": "Specifies the node on which this cmdlet applies the action. Supported node types: HeadNode | WorkerNode | ZookeeperNode"
                 },
                 {
                   "flags": "--uri <uri>",
@@ -14899,519 +14907,6 @@
                   "bool": true,
                   "long": "--parameters",
                   "description": "Specifies the parameters for the action."
-                },
-                {
-                  "flags": "-s, --subscription <id>",
-                  "required": -20,
-                  "optional": 0,
-                  "bool": true,
-                  "short": "-s",
-                  "long": "--subscription",
-                  "description": "The subscription id"
-                }
-              ]
-            }
-          ],
-          "categories": {}
-        },
-        "job": {
-          "name": "job",
-          "description": "Commands to manage HDInsight jobs",
-          "fullName": "hdinsight job",
-          "usage": "[options] [command]",
-          "options": [],
-          "commands": [
-            {
-              "name": "hive_create",
-              "description": "Submits a Hive job to an HdInsight cluster",
-              "fullName": "hdinsight job hive_create",
-              "usage": "[options] <clusterDnsName> <userName> <password>",
-              "filePath": "commands/arm/hdinsight/hdinsight._js",
-              "options": [
-                {
-                  "flags": "-v, --verbose",
-                  "required": 0,
-                  "optional": 0,
-                  "bool": true,
-                  "short": "-v",
-                  "long": "--verbose",
-                  "description": "use verbose output"
-                },
-                {
-                  "flags": "-vv",
-                  "required": 0,
-                  "optional": 0,
-                  "bool": true,
-                  "long": "-vv",
-                  "description": "more verbose with debug output"
-                },
-                {
-                  "flags": "--json",
-                  "required": 0,
-                  "optional": 0,
-                  "bool": true,
-                  "long": "--json",
-                  "description": "use json output"
-                },
-                {
-                  "flags": "--clusterDnsName <clusterDnsName>",
-                  "required": -18,
-                  "optional": 0,
-                  "bool": true,
-                  "long": "--clusterDnsName",
-                  "description": "Fully qualified cluster DNS name. Example: mycluster.azurehdinsight.net"
-                },
-                {
-                  "flags": "--userName <userName>",
-                  "required": -12,
-                  "optional": 0,
-                  "bool": true,
-                  "long": "--userName",
-                  "description": "User name for the cluster"
-                },
-                {
-                  "flags": "--password <password>",
-                  "required": -12,
-                  "optional": 0,
-                  "bool": true,
-                  "long": "--password",
-                  "description": "Password for the cluster"
-                },
-                {
-                  "flags": "--query <query>",
-                  "required": -9,
-                  "optional": 0,
-                  "bool": true,
-                  "long": "--query",
-                  "description": "The Hive query string to be executed"
-                },
-                {
-                  "flags": "--queryFile <queryFile>",
-                  "required": -13,
-                  "optional": 0,
-                  "bool": true,
-                  "long": "--queryFile",
-                  "description": "The path to a file that contains the Hive query to be executed; this parameter and the [query] parameter are mutually exclusive"
-                },
-                {
-                  "flags": "--arguments <arguments>",
-                  "required": -13,
-                  "optional": 0,
-                  "bool": true,
-                  "long": "--arguments",
-                  "description": "A comma separated string of arguments to be passed to the Hive job. For example: \"a1,a2,a3\""
-                },
-                {
-                  "flags": "--defines <defines>",
-                  "required": -11,
-                  "optional": 0,
-                  "bool": true,
-                  "long": "--defines",
-                  "description": "A key/value pair of Hadoop configuration values to be set during the Hive job execution. For example: \"k1=v1,k2=v2\""
-                },
-                {
-                  "flags": "--files <files>",
-                  "required": -9,
-                  "optional": 0,
-                  "bool": true,
-                  "long": "--files",
-                  "description": "A comma separated string of file paths required for the Hive job to execute. For example: \"f1/f2/f3,f4/f5,f6\""
-                },
-                {
-                  "flags": "-s, --subscription <id>",
-                  "required": -20,
-                  "optional": 0,
-                  "bool": true,
-                  "short": "-s",
-                  "long": "--subscription",
-                  "description": "The subscription id"
-                }
-              ]
-            },
-            {
-              "name": "mr_create",
-              "description": "Submits a MapReduce job to an HdInsight cluster",
-              "fullName": "hdinsight job mr_create",
-              "usage": "[options] <clusterDnsName> <userName> <password> <className> <jarFile>",
-              "filePath": "commands/arm/hdinsight/hdinsight._js",
-              "options": [
-                {
-                  "flags": "-v, --verbose",
-                  "required": 0,
-                  "optional": 0,
-                  "bool": true,
-                  "short": "-v",
-                  "long": "--verbose",
-                  "description": "use verbose output"
-                },
-                {
-                  "flags": "-vv",
-                  "required": 0,
-                  "optional": 0,
-                  "bool": true,
-                  "long": "-vv",
-                  "description": "more verbose with debug output"
-                },
-                {
-                  "flags": "--json",
-                  "required": 0,
-                  "optional": 0,
-                  "bool": true,
-                  "long": "--json",
-                  "description": "use json output"
-                },
-                {
-                  "flags": "--clusterDnsName <clusterDnsName>",
-                  "required": -18,
-                  "optional": 0,
-                  "bool": true,
-                  "long": "--clusterDnsName",
-                  "description": "Fully qualified cluster DNS name. Example: mycluster.azurehdinsight.net"
-                },
-                {
-                  "flags": "--userName <userName>",
-                  "required": -12,
-                  "optional": 0,
-                  "bool": true,
-                  "long": "--userName",
-                  "description": "User name for the cluster"
-                },
-                {
-                  "flags": "--password <password>",
-                  "required": -12,
-                  "optional": 0,
-                  "bool": true,
-                  "long": "--password",
-                  "description": "Password for the cluster"
-                },
-                {
-                  "flags": "--className <className>",
-                  "required": -13,
-                  "optional": 0,
-                  "bool": true,
-                  "long": "--className",
-                  "description": "Name of the job class in the job JAR file"
-                },
-                {
-                  "flags": "--jarFile <jarFile>",
-                  "required": -11,
-                  "optional": 0,
-                  "bool": true,
-                  "long": "--jarFile",
-                  "description": "The fully qualified name of the JAR file that contains the code and dependencies of the MapReduce job"
-                },
-                {
-                  "flags": "--arguments <arguments>",
-                  "required": -13,
-                  "optional": 0,
-                  "bool": true,
-                  "long": "--arguments",
-                  "description": "A comma separated string of arguments to be passed to the MapReduce job. For example: \"a1,a2,a3\""
-                },
-                {
-                  "flags": "--defines <defines>",
-                  "required": -11,
-                  "optional": 0,
-                  "bool": true,
-                  "long": "--defines",
-                  "description": "A key/value pair of Hadoop configuration values to be set during the MapReduce job execution. For example: \"k1=v1,k2=v2\""
-                },
-                {
-                  "flags": "--files <files>",
-                  "required": -9,
-                  "optional": 0,
-                  "bool": true,
-                  "long": "--files",
-                  "description": "A comma separated string of file paths required for the MapReduce job to execute. For example: \"f1/f2/f3,f4/f5,f6\""
-                },
-                {
-                  "flags": "--libJars <libJars>",
-                  "required": -11,
-                  "optional": 0,
-                  "bool": true,
-                  "long": "--libJars",
-                  "description": "The Jar library references for the MapReduce job"
-                },
-                {
-                  "flags": "-s, --subscription <id>",
-                  "required": -20,
-                  "optional": 0,
-                  "bool": true,
-                  "short": "-s",
-                  "long": "--subscription",
-                  "description": "The subscription id"
-                }
-              ]
-            },
-            {
-              "name": "mr_streaming_create",
-              "description": "Submits a Streaming MapReduce job to an HdInsight cluster",
-              "fullName": "hdinsight job mr_streaming_create",
-              "usage": "[options] <clusterDnsName> <userName> <password> <mapper> <reducer>",
-              "filePath": "commands/arm/hdinsight/hdinsight._js",
-              "options": [
-                {
-                  "flags": "-v, --verbose",
-                  "required": 0,
-                  "optional": 0,
-                  "bool": true,
-                  "short": "-v",
-                  "long": "--verbose",
-                  "description": "use verbose output"
-                },
-                {
-                  "flags": "-vv",
-                  "required": 0,
-                  "optional": 0,
-                  "bool": true,
-                  "long": "-vv",
-                  "description": "more verbose with debug output"
-                },
-                {
-                  "flags": "--json",
-                  "required": 0,
-                  "optional": 0,
-                  "bool": true,
-                  "long": "--json",
-                  "description": "use json output"
-                },
-                {
-                  "flags": "--clusterDnsName <clusterDnsName>",
-                  "required": -18,
-                  "optional": 0,
-                  "bool": true,
-                  "long": "--clusterDnsName",
-                  "description": "Fully qualified cluster DNS name. Example: mycluster.azurehdinsight.net"
-                },
-                {
-                  "flags": "--userName <userName>",
-                  "required": -12,
-                  "optional": 0,
-                  "bool": true,
-                  "long": "--userName",
-                  "description": "User name for the cluster"
-                },
-                {
-                  "flags": "--password <password>",
-                  "required": -12,
-                  "optional": 0,
-                  "bool": true,
-                  "long": "--password",
-                  "description": "Password for the cluster"
-                },
-                {
-                  "flags": "--arguments <arguments>",
-                  "required": -13,
-                  "optional": 0,
-                  "bool": true,
-                  "long": "--arguments",
-                  "description": "A comma separated string of arguments to be passed to the Streaming MapReduce job. For example: \"a1,a2,a3\""
-                },
-                {
-                  "flags": "--cmdenv <cmdEnv>",
-                  "required": -10,
-                  "optional": 0,
-                  "bool": true,
-                  "long": "--cmdenv",
-                  "description": "Comma separated key/value pairs of environment variables that should be set during the Streaming MapReduce job execution on worker nodes"
-                },
-                {
-                  "flags": "--mapper <combiner>",
-                  "required": -10,
-                  "optional": 0,
-                  "bool": true,
-                  "long": "--mapper",
-                  "description": "Mapper executable name for the Streaming MapReduce job"
-                },
-                {
-                  "flags": "--reducer <reducer>",
-                  "required": -11,
-                  "optional": 0,
-                  "bool": true,
-                  "long": "--reducer",
-                  "description": "Reducer executable name for the Streaming MapReduce job"
-                },
-                {
-                  "flags": "--combiner <combiner>",
-                  "required": -12,
-                  "optional": 0,
-                  "bool": true,
-                  "long": "--combiner",
-                  "description": "Combiner executable name for the Streaming MapReduce job"
-                },
-                {
-                  "flags": "--defines <defines>",
-                  "required": -11,
-                  "optional": 0,
-                  "bool": true,
-                  "long": "--defines",
-                  "description": "A comma separated key/value pair of Hadoop configuration values to be set during the Streaming MapReduce job execution. For example: \"k1=v1,k2=v2\""
-                },
-                {
-                  "flags": "--files <files>",
-                  "required": -9,
-                  "optional": 0,
-                  "bool": true,
-                  "long": "--files",
-                  "description": "A comma separated string of file paths required for the Streaming MapReduce job to execute. For example: \"f1/f2/f3,f4/f5,f6\""
-                },
-                {
-                  "flags": "--inputPath <inputPath>",
-                  "required": -13,
-                  "optional": 0,
-                  "bool": true,
-                  "long": "--inputPath",
-                  "description": "Location of the input files for the Streaming MapReduce job"
-                },
-                {
-                  "flags": "--outputPath <outputPath>",
-                  "required": -14,
-                  "optional": 0,
-                  "bool": true,
-                  "long": "--outputPath",
-                  "description": "Location of the output files for the Streaming MapReduce job"
-                },
-                {
-                  "flags": "-s, --subscription <id>",
-                  "required": -20,
-                  "optional": 0,
-                  "bool": true,
-                  "short": "-s",
-                  "long": "--subscription",
-                  "description": "The subscription id"
-                }
-              ]
-            },
-            {
-              "name": "show",
-              "description": "Retrieves the details of the specified job from an HDInsight cluster",
-              "fullName": "hdinsight job show",
-              "usage": "[options] <clusterDnsName> <userName> <password> <jobId>",
-              "filePath": "commands/arm/hdinsight/hdinsight._js",
-              "options": [
-                {
-                  "flags": "-v, --verbose",
-                  "required": 0,
-                  "optional": 0,
-                  "bool": true,
-                  "short": "-v",
-                  "long": "--verbose",
-                  "description": "use verbose output"
-                },
-                {
-                  "flags": "-vv",
-                  "required": 0,
-                  "optional": 0,
-                  "bool": true,
-                  "long": "-vv",
-                  "description": "more verbose with debug output"
-                },
-                {
-                  "flags": "--json",
-                  "required": 0,
-                  "optional": 0,
-                  "bool": true,
-                  "long": "--json",
-                  "description": "use json output"
-                },
-                {
-                  "flags": "--clusterDnsName <clusterDnsName>",
-                  "required": -18,
-                  "optional": 0,
-                  "bool": true,
-                  "long": "--clusterDnsName",
-                  "description": "Fully qualified cluster DNS name. Example: mycluster.azurehdinsight.net"
-                },
-                {
-                  "flags": "--userName <userName>",
-                  "required": -12,
-                  "optional": 0,
-                  "bool": true,
-                  "long": "--userName",
-                  "description": "User name for the cluster"
-                },
-                {
-                  "flags": "--password <password>",
-                  "required": -12,
-                  "optional": 0,
-                  "bool": true,
-                  "long": "--password",
-                  "description": "Password for the cluster"
-                },
-                {
-                  "flags": "--jobId <jobId>",
-                  "required": -9,
-                  "optional": 0,
-                  "bool": true,
-                  "long": "--jobId",
-                  "description": "The Id of the job for which the details need to be retrieved"
-                },
-                {
-                  "flags": "-s, --subscription <id>",
-                  "required": -20,
-                  "optional": 0,
-                  "bool": true,
-                  "short": "-s",
-                  "long": "--subscription",
-                  "description": "The subscription id"
-                }
-              ]
-            },
-            {
-              "name": "list",
-              "description": "Retrieves the list of jobs from the specified HDInsight cluster",
-              "fullName": "hdinsight job list",
-              "usage": "[options] <clusterDnsName> <userName> <password>",
-              "filePath": "commands/arm/hdinsight/hdinsight._js",
-              "options": [
-                {
-                  "flags": "-v, --verbose",
-                  "required": 0,
-                  "optional": 0,
-                  "bool": true,
-                  "short": "-v",
-                  "long": "--verbose",
-                  "description": "use verbose output"
-                },
-                {
-                  "flags": "-vv",
-                  "required": 0,
-                  "optional": 0,
-                  "bool": true,
-                  "long": "-vv",
-                  "description": "more verbose with debug output"
-                },
-                {
-                  "flags": "--json",
-                  "required": 0,
-                  "optional": 0,
-                  "bool": true,
-                  "long": "--json",
-                  "description": "use json output"
-                },
-                {
-                  "flags": "--clusterDnsName <clusterDnsName>",
-                  "required": -18,
-                  "optional": 0,
-                  "bool": true,
-                  "long": "--clusterDnsName",
-                  "description": "Fully qualified cluster DNS name. Example: mycluster.azurehdinsight.net"
-                },
-                {
-                  "flags": "--userName <userName>",
-                  "required": -12,
-                  "optional": 0,
-                  "bool": true,
-                  "long": "--userName",
-                  "description": "User name for the cluster"
-                },
-                {
-                  "flags": "--password <password>",
-                  "required": -12,
-                  "optional": 0,
-                  "bool": true,
-                  "long": "--password",
-                  "description": "Password for the cluster"
                 },
                 {
                   "flags": "-s, --subscription <id>",
