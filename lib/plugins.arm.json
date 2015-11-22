@@ -10860,7 +10860,7 @@
                   "description": "Lists the contents of the specified path (files and folders).",
                   "fullName": "datalake store filesystem list",
                   "usage": "[options] <accountName> <path>",
-                  "filePath": "commands/arm/datalakestore/datalakestore._js",
+                  "filePath": "commands/arm/datalakestore/datalakeStore._js",
                   "options": [
                     {
                       "flags": "-v, --verbose",
@@ -10921,7 +10921,7 @@
                   "description": "Gets the specified Data Lake Store file or folder details",
                   "fullName": "datalake store filesystem show",
                   "usage": "[options] <accountName> <path>",
-                  "filePath": "commands/arm/datalakestore/datalakestore._js",
+                  "filePath": "commands/arm/datalakestore/datalakeStore._js",
                   "options": [
                     {
                       "flags": "-v, --verbose",
@@ -10982,7 +10982,7 @@
                   "description": "deletes the specified Data Lake Store file or folder, with the option for recursive delete (if the folder has contents)",
                   "fullName": "datalake store filesystem delete",
                   "usage": "[options] <accountName> <path>",
-                  "filePath": "commands/arm/datalakestore/datalakestore._js",
+                  "filePath": "commands/arm/datalakestore/datalakeStore._js",
                   "options": [
                     {
                       "flags": "-v, --verbose",
@@ -11061,7 +11061,7 @@
                   "description": "Creates the specified folder or file, with the option to include content in file creation.",
                   "fullName": "datalake store filesystem create",
                   "usage": "[options] <accountName> <path>",
-                  "filePath": "commands/arm/datalakestore/datalakestore._js",
+                  "filePath": "commands/arm/datalakestore/datalakeStore._js",
                   "options": [
                     {
                       "flags": "-v, --verbose",
@@ -11149,7 +11149,7 @@
                   "description": "Uploads the specified the specified file, to the target destination in an Azure Data Lake. NOTE: Only text files are supported by this command at present.",
                   "fullName": "datalake store filesystem import",
                   "usage": "[options] <accountName> <path> <destination>",
-                  "filePath": "commands/arm/datalakestore/datalakestore._js",
+                  "filePath": "commands/arm/datalakestore/datalakeStore._js",
                   "options": [
                     {
                       "flags": "-v, --verbose",
@@ -11228,7 +11228,7 @@
                   "description": "Concatenates the specified list of files into the specified destination file.",
                   "fullName": "datalake store filesystem concat",
                   "usage": "[options] <accountName> <paths> <destination>",
-                  "filePath": "commands/arm/datalakestore/datalakestore._js",
+                  "filePath": "commands/arm/datalakestore/datalakeStore._js",
                   "options": [
                     {
                       "flags": "-v, --verbose",
@@ -11307,7 +11307,7 @@
                   "description": "Moves (renames) the specified file or folder into the specified destination file or folder.",
                   "fullName": "datalake store filesystem move",
                   "usage": "[options] <accountName> <path> <destination>",
-                  "filePath": "commands/arm/datalakestore/datalakestore._js",
+                  "filePath": "commands/arm/datalakestore/datalakeStore._js",
                   "options": [
                     {
                       "flags": "-v, --verbose",
@@ -11386,7 +11386,7 @@
                   "description": "Appends the specified content to the end of the Data Lake Store file path specified.",
                   "fullName": "datalake store filesystem addcontent",
                   "usage": "[options] <accountName> <path> <value>",
-                  "filePath": "commands/arm/datalakestore/datalakestore._js",
+                  "filePath": "commands/arm/datalakestore/datalakeStore._js",
                   "options": [
                     {
                       "flags": "-v, --verbose",
@@ -11456,7 +11456,7 @@
                   "description": "Downloads the specified file to the target location. NOTE: Only text files are supported by this command at present.",
                   "fullName": "datalake store filesystem export",
                   "usage": "[options] <accountName> <path> <destination>",
-                  "filePath": "commands/arm/datalakestore/datalakestore._js",
+                  "filePath": "commands/arm/datalakestore/datalakeStore._js",
                   "options": [
                     {
                       "flags": "-v, --verbose",
@@ -11535,7 +11535,7 @@
                   "description": "Previews the specified Data Lake Store file starting at index 0 (or the specified offset) until the length is reached, displaying the results to the console.",
                   "fullName": "datalake store filesystem read",
                   "usage": "[options] <accountName> <path> <length>",
-                  "filePath": "commands/arm/datalakestore/datalakestore._js",
+                  "filePath": "commands/arm/datalakestore/datalakeStore._js",
                   "options": [
                     {
                       "flags": "-v, --verbose",
@@ -11624,7 +11624,7 @@
                   "description": "Gets the specified Data Lake Store folder ACL",
                   "fullName": "datalake store permissions show",
                   "usage": "[options] <accountName> <path>",
-                  "filePath": "commands/arm/datalakestore/datalakestore._js",
+                  "filePath": "commands/arm/datalakestore/datalakeStore._js",
                   "options": [
                     {
                       "flags": "-v, --verbose",
@@ -11685,7 +11685,7 @@
                   "description": "Deletes the entire ACL associated with a folder",
                   "fullName": "datalake store permissions delete",
                   "usage": "[options] <accountName> <path>",
-                  "filePath": "commands/arm/datalakestore/datalakestore._js",
+                  "filePath": "commands/arm/datalakestore/datalakeStore._js",
                   "options": [
                     {
                       "flags": "-v, --verbose",
@@ -11764,7 +11764,7 @@
                   "description": "sets the specified Data Lake Store folder ACL (overwriting the previous ACL entries)",
                   "fullName": "datalake store permissions set",
                   "usage": "[options] <accountName> <path> <aclSpec>",
-                  "filePath": "commands/arm/datalakestore/datalakestore._js",
+                  "filePath": "commands/arm/datalakestore/datalakeStore._js",
                   "options": [
                     {
                       "flags": "-v, --verbose",
@@ -11852,7 +11852,7 @@
                       "description": "deletes the specific ACE entry or entries from the path",
                       "fullName": "datalake store permissions entry delete",
                       "usage": "[options] <accountName> <path> <aclEntries>",
-                      "filePath": "commands/arm/datalakestore/datalakestore._js",
+                      "filePath": "commands/arm/datalakestore/datalakeStore._js",
                       "options": [
                         {
                           "flags": "-v, --verbose",
@@ -11931,7 +11931,7 @@
                       "description": "sets the specified Data Lake Store folder ACE entry or entries",
                       "fullName": "datalake store permissions entry set",
                       "usage": "[options] <accountName> <path> <aclEntries>",
-                      "filePath": "commands/arm/datalakestore/datalakestore._js",
+                      "filePath": "commands/arm/datalakestore/datalakeStore._js",
                       "options": [
                         {
                           "flags": "-v, --verbose",
@@ -12022,7 +12022,7 @@
                   "description": "List all Data Lake Store accounts available for your subscription or subscription and resource group",
                   "fullName": "datalake store account list",
                   "usage": "[options]",
-                  "filePath": "commands/arm/datalakestore/datalakestore._js",
+                  "filePath": "commands/arm/datalakestore/datalakeStore._js",
                   "options": [
                     {
                       "flags": "-v, --verbose",
@@ -12074,7 +12074,7 @@
                   "description": "Shows a Data Lake Store Account based on account name",
                   "fullName": "datalake store account show",
                   "usage": "[options] <accountName>",
-                  "filePath": "commands/arm/datalakestore/datalakestore._js",
+                  "filePath": "commands/arm/datalakestore/datalakeStore._js",
                   "options": [
                     {
                       "flags": "-v, --verbose",
@@ -12135,7 +12135,7 @@
                   "description": "Deletes a Data Lake Store Account based on account name",
                   "fullName": "datalake store account delete",
                   "usage": "[options] <accountName>",
-                  "filePath": "commands/arm/datalakestore/datalakestore._js",
+                  "filePath": "commands/arm/datalakestore/datalakeStore._js",
                   "options": [
                     {
                       "flags": "-v, --verbose",
@@ -12205,7 +12205,7 @@
                   "description": "Creates a Data Lake Store Account",
                   "fullName": "datalake store account create",
                   "usage": "[options] <accountName> <location> <resource-group>",
-                  "filePath": "commands/arm/datalakestore/datalakestore._js",
+                  "filePath": "commands/arm/datalakestore/datalakeStore._js",
                   "options": [
                     {
                       "flags": "-v, --verbose",
@@ -12293,7 +12293,7 @@
                   "description": "Updates the properties of an existing Data Lake Store Account",
                   "fullName": "datalake store account set",
                   "usage": "[options] <accountName>",
-                  "filePath": "commands/arm/datalakestore/datalakestore._js",
+                  "filePath": "commands/arm/datalakestore/datalakeStore._js",
                   "options": [
                     {
                       "flags": "-v, --verbose",
@@ -13785,13 +13785,13 @@
                   "description": "use json output"
                 },
                 {
-                  "flags": "-g, --resourceGroupName <resourceGroupName>",
-                  "required": -25,
+                  "flags": "-g --resource-group <resource-group>",
+                  "required": -21,
                   "optional": 0,
                   "bool": true,
                   "short": "-g",
-                  "long": "--resourceGroupName",
-                  "description": "Azure resource group name for the cluster"
+                  "long": "--resource-group",
+                  "description": "The name of the resource group"
                 },
                 {
                   "flags": "-c, --clusterName <clusterName>",
@@ -13866,7 +13866,7 @@
                   "optional": 0,
                   "bool": true,
                   "long": "--headNodeSize",
-                  "description": "(optional) Head node size for the cluster"
+                  "description": "(Optional) Head node size for the cluster"
                 },
                 {
                   "flags": "--workerNodeCount <workerNodeCount>",
@@ -13882,7 +13882,7 @@
                   "optional": 0,
                   "bool": true,
                   "long": "--workerNodeSize",
-                  "description": "(optional) Worker node size for the cluster)"
+                  "description": "(Optional) Worker node size for the cluster)"
                 },
                 {
                   "flags": "--zookeeperNodeSize <zookeeperNodeSize>",
@@ -13890,7 +13890,7 @@
                   "optional": 0,
                   "bool": true,
                   "long": "--zookeeperNodeSize",
-                  "description": "(optional) Zookeeper node size for the cluster"
+                  "description": "(Optional) Zookeeper node size for the cluster"
                 },
                 {
                   "flags": "--userName <userName>",
@@ -13962,7 +13962,7 @@
                   "optional": 0,
                   "bool": true,
                   "long": "--virtualNetworkId",
-                  "description": "(optional) Virtual network ID for the cluster. Value is a GUID for Windows cluster and ARM resource ID for Linux cluster) "
+                  "description": "(Optional) Virtual network ID for the cluster. Value is a GUID for Windows cluster and ARM resource ID for Linux cluster) "
                 },
                 {
                   "flags": "--subnetName <subnetName>",
@@ -13970,7 +13970,7 @@
                   "optional": 0,
                   "bool": true,
                   "long": "--subnetName",
-                  "description": "(optional) Subnet for the cluster"
+                  "description": "(Optional) Subnet for the cluster"
                 },
                 {
                   "flags": "--additionalStorageAccounts <additionalStorageAccounts>",
@@ -13978,7 +13978,7 @@
                   "optional": 0,
                   "bool": true,
                   "long": "--additionalStorageAccounts",
-                  "description": "(optional) Additional storage accounts. Can be multiple. In the format of 'accountName#accountKey'. For example, --additionalStorageAccounts \"acc1#key1;acc2#key2\""
+                  "description": "(Optional) Additional storage accounts. Can be multiple. In the format of 'accountName#accountKey'. For example, --additionalStorageAccounts \"acc1#key1;acc2#key2\""
                 },
                 {
                   "flags": "--hiveMetastoreServerName <hiveMetastoreServerName>",
@@ -13986,7 +13986,7 @@
                   "optional": 0,
                   "bool": true,
                   "long": "--hiveMetastoreServerName",
-                  "description": "(optional) SQL Server name for the external metastore for Hive"
+                  "description": "(Optional) SQL Server name for the external metastore for Hive"
                 },
                 {
                   "flags": "--hiveMetastoreDatabaseName <hiveMetastoreDatabaseName>",
@@ -13994,7 +13994,7 @@
                   "optional": 0,
                   "bool": true,
                   "long": "--hiveMetastoreDatabaseName",
-                  "description": "(optional) Database name for the external metastore for Hive"
+                  "description": "(Optional) Database name for the external metastore for Hive"
                 },
                 {
                   "flags": "--hiveMetastoreUserName <hiveMetastoreUserName>",
@@ -14002,7 +14002,7 @@
                   "optional": 0,
                   "bool": true,
                   "long": "--hiveMetastoreUserName",
-                  "description": "(optional) Database username for the external metastore for Hive"
+                  "description": "(Optional) Database username for the external metastore for Hive"
                 },
                 {
                   "flags": "--hiveMetastorePassword <hiveMetastorePassword>",
@@ -14010,7 +14010,7 @@
                   "optional": 0,
                   "bool": true,
                   "long": "--hiveMetastorePassword",
-                  "description": "(optional) Database password for the external metastore for Hive"
+                  "description": "(Optional) Database password for the external metastore for Hive"
                 },
                 {
                   "flags": "--oozieMetastoreServerName <oozieMetastoreServerName>",
@@ -14018,7 +14018,7 @@
                   "optional": 0,
                   "bool": true,
                   "long": "--oozieMetastoreServerName",
-                  "description": "(optional) SQL Server name for the external metastore for Oozie"
+                  "description": "(Optional) SQL Server name for the external metastore for Oozie"
                 },
                 {
                   "flags": "--oozieMetastoreDatabaseName <oozieMetastoreDatabaseName>",
@@ -14026,7 +14026,7 @@
                   "optional": 0,
                   "bool": true,
                   "long": "--oozieMetastoreDatabaseName",
-                  "description": "(optional) Database name for the external metastore for Oozie"
+                  "description": "(Optional) Database name for the external metastore for Oozie"
                 },
                 {
                   "flags": "--oozieMetastoreUserName <oozieMetastoreUserName>",
@@ -14034,7 +14034,7 @@
                   "optional": 0,
                   "bool": true,
                   "long": "--oozieMetastoreUserName",
-                  "description": "(optional) Database username for the external metastore for Oozie"
+                  "description": "(Optional) Database username for the external metastore for Oozie"
                 },
                 {
                   "flags": "--oozieMetastorePassword <oozieMetastorePassword>",
@@ -14042,7 +14042,7 @@
                   "optional": 0,
                   "bool": true,
                   "long": "--oozieMetastorePassword",
-                  "description": "(optional) Database password for the external metastore for Oozie"
+                  "description": "(Optional) Database password for the external metastore for Oozie"
                 },
                 {
                   "flags": "--configurationPath <configurationPath>",
@@ -14050,7 +14050,7 @@
                   "optional": 0,
                   "bool": true,
                   "long": "--configurationPath",
-                  "description": "(optional) HDInsight cluster configuration file path"
+                  "description": "(Optional) HDInsight cluster configuration file path"
                 },
                 {
                   "flags": "-s, --subscription <id>",
@@ -14104,13 +14104,13 @@
                   "description": "use json output"
                 },
                 {
-                  "flags": "-g, --resourceGroupName <resourceGroupName>",
-                  "required": -25,
+                  "flags": "-g --resource-group <resource-group>",
+                  "required": -21,
                   "optional": 0,
                   "bool": true,
                   "short": "-g",
-                  "long": "--resourceGroupName",
-                  "description": "Azure resource group name for the cluster"
+                  "long": "--resource-group",
+                  "description": "The name of the resource group"
                 },
                 {
                   "flags": "--clusterName <clusterName>",
@@ -14121,20 +14121,13 @@
                   "description": "Cluster name"
                 },
                 {
-                  "flags": "--location <location>",
-                  "required": -12,
+                  "flags": "-q, --quiet",
+                  "required": 0,
                   "optional": 0,
                   "bool": true,
-                  "long": "--location",
-                  "description": "Cluster location"
-                },
-                {
-                  "flags": "--osType <osType>",
-                  "required": -10,
-                  "optional": 0,
-                  "bool": true,
-                  "long": "--osType",
-                  "description": "Cluster OS type"
+                  "short": "-q",
+                  "long": "--quiet",
+                  "description": "quiet mode (do not ask for delete confirmation)"
                 },
                 {
                   "flags": "-s, --subscription <id>",
@@ -14180,13 +14173,13 @@
                   "description": "use json output"
                 },
                 {
-                  "flags": "-g, --resourceGroupName <resourceGroupName>",
-                  "required": -25,
+                  "flags": "-g --resource-group <resource-group>",
+                  "required": -21,
                   "optional": 0,
                   "bool": true,
                   "short": "-g",
-                  "long": "--resourceGroupName",
-                  "description": "Azure resource group name for the cluster"
+                  "long": "--resource-group",
+                  "description": "The name of the resource group"
                 },
                 {
                   "flags": "-c, --clusterName <clusterName>",
@@ -14241,13 +14234,13 @@
                   "description": "use json output"
                 },
                 {
-                  "flags": "-g, --resourceGroupName <resourceGroupName>",
-                  "required": -25,
+                  "flags": "-g --resource-group <resource-group>",
+                  "required": -21,
                   "optional": 0,
                   "bool": true,
                   "short": "-g",
-                  "long": "--resourceGroupName",
-                  "description": "Azure resource group name for the cluster"
+                  "long": "--resource-group",
+                  "description": "The name of the resource group"
                 },
                 {
                   "flags": "-s, --subscription <id>",
@@ -14293,13 +14286,13 @@
                   "description": "use json output"
                 },
                 {
-                  "flags": "-g, --resourceGroupName <resourceGroupName>",
-                  "required": -25,
+                  "flags": "-g --resource-group <resource-group>",
+                  "required": -21,
                   "optional": 0,
                   "bool": true,
                   "short": "-g",
-                  "long": "--resourceGroupName",
-                  "description": "Azure resource group name for the cluster"
+                  "long": "--resource-group",
+                  "description": "The name of the resource group"
                 },
                 {
                   "flags": "-c, --clusterName <clusterName>",
@@ -14362,13 +14355,13 @@
                   "description": "use json output"
                 },
                 {
-                  "flags": "-g, --resourceGroupName <resourceGroupName>",
-                  "required": -25,
+                  "flags": "-g --resource-group <resource-group>",
+                  "required": -21,
                   "optional": 0,
                   "bool": true,
                   "short": "-g",
-                  "long": "--resourceGroupName",
-                  "description": "Azure resource group name for the cluster"
+                  "long": "--resource-group",
+                  "description": "The name of the resource group"
                 },
                 {
                   "flags": "-c, --clusterName <clusterName>",
@@ -14439,13 +14432,13 @@
                   "description": "use json output"
                 },
                 {
-                  "flags": "-g, --resourceGroupName <resourceGroupName>",
-                  "required": -25,
+                  "flags": "-g --resource-group <resource-group>",
+                  "required": -21,
                   "optional": 0,
                   "bool": true,
                   "short": "-g",
-                  "long": "--resourceGroupName",
-                  "description": "Azure resource group name for the cluster"
+                  "long": "--resource-group",
+                  "description": "The name of the resource group"
                 },
                 {
                   "flags": "-c, --clusterName <clusterName>",
@@ -14500,13 +14493,13 @@
                   "description": "use json output"
                 },
                 {
-                  "flags": "-g, --resourceGroupName <resourceGroupName>",
-                  "required": -25,
+                  "flags": "-g --resource-group <resource-group>",
+                  "required": -21,
                   "optional": 0,
                   "bool": true,
                   "short": "-g",
-                  "long": "--resourceGroupName",
-                  "description": "Azure resource group name for the cluster"
+                  "long": "--resource-group",
+                  "description": "The name of the resource group"
                 },
                 {
                   "flags": "-c, --clusterName <clusterName>",
@@ -14585,13 +14578,13 @@
                   "description": "use json output"
                 },
                 {
-                  "flags": "-g, --resourceGroupName <resourceGroupName>",
-                  "required": -25,
+                  "flags": "-g --resource-group <resource-group>",
+                  "required": -21,
                   "optional": 0,
                   "bool": true,
                   "short": "-g",
-                  "long": "--resourceGroupName",
-                  "description": "Azure resource group name for the cluster"
+                  "long": "--resource-group",
+                  "description": "The name of the resource group"
                 },
                 {
                   "flags": "-c, --clusterName <clusterName>",
@@ -14719,7 +14712,7 @@
                   "optional": 0,
                   "bool": true,
                   "long": "--core-site",
-                  "description": "Core component config values"
+                  "description": "Config values in the format of 'name=value'"
                 },
                 {
                   "flags": "--hive-site <hive-site>",
@@ -14727,7 +14720,7 @@
                   "optional": 0,
                   "bool": true,
                   "long": "--hive-site",
-                  "description": "Hive component config values"
+                  "description": "Config values in the format of 'name=value'"
                 },
                 {
                   "flags": "--hive-env <hive-env>",
@@ -14735,7 +14728,7 @@
                   "optional": 0,
                   "bool": true,
                   "long": "--hive-env",
-                  "description": "Hadoop component config values"
+                  "description": "Config values in the format of 'name=value'"
                 },
                 {
                   "flags": "--hdfs-site <hdfs-site>",
@@ -14743,7 +14736,7 @@
                   "optional": 0,
                   "bool": true,
                   "long": "--hdfs-site",
-                  "description": "Hadoop component config values"
+                  "description": "Config values in the format of 'name=value'"
                 },
                 {
                   "flags": "--hbase-env <hbase-env>",
@@ -14751,7 +14744,7 @@
                   "optional": 0,
                   "bool": true,
                   "long": "--hbase-env",
-                  "description": "Hadoop component config values"
+                  "description": "Config values in the format of 'name=value'"
                 },
                 {
                   "flags": "--hbase-site <hbase-site>",
@@ -14759,7 +14752,7 @@
                   "optional": 0,
                   "bool": true,
                   "long": "--hbase-site",
-                  "description": "Hadoop component config values"
+                  "description": "Config values in the format of 'name=value'"
                 },
                 {
                   "flags": "--mapred-site <mapred-site>",
@@ -14767,7 +14760,7 @@
                   "optional": 0,
                   "bool": true,
                   "long": "--mapred-site",
-                  "description": "Hadoop component config values"
+                  "description": "Config values in the format of 'name=value'"
                 },
                 {
                   "flags": "--oozie-env <oozie-env>",
@@ -14775,7 +14768,7 @@
                   "optional": 0,
                   "bool": true,
                   "long": "--oozie-env",
-                  "description": "Hadoop component config values"
+                  "description": "Config values in the format of 'name=value'"
                 },
                 {
                   "flags": "--oozie-site <oozie-site>",
@@ -14783,7 +14776,7 @@
                   "optional": 0,
                   "bool": true,
                   "long": "--oozie-site",
-                  "description": "Hadoop component config values"
+                  "description": "Config values in the format of 'name=value'"
                 },
                 {
                   "flags": "--storm-site <storm-site>",
@@ -14791,7 +14784,7 @@
                   "optional": 0,
                   "bool": true,
                   "long": "--storm-site",
-                  "description": "Hadoop component config values"
+                  "description": "Config values in the format of 'name=value'"
                 },
                 {
                   "flags": "--tez-site <tez-site>",
@@ -14799,7 +14792,7 @@
                   "optional": 0,
                   "bool": true,
                   "long": "--tez-site",
-                  "description": "Hadoop component config values"
+                  "description": "Config values in the format of 'name=value'"
                 },
                 {
                   "flags": "--webhcat-site <webhcat-site>",
@@ -14807,7 +14800,7 @@
                   "optional": 0,
                   "bool": true,
                   "long": "--webhcat-site",
-                  "description": "Hadoop component config values"
+                  "description": "Config values in the format of 'name=value'"
                 },
                 {
                   "flags": "--gateway <gateway>",
@@ -14815,7 +14808,7 @@
                   "optional": 0,
                   "bool": true,
                   "long": "--gateway",
-                  "description": "Hadoop component config values"
+                  "description": "Config values in the format of 'name=value'"
                 },
                 {
                   "flags": "--yarn <yarn>",
@@ -14823,7 +14816,7 @@
                   "optional": 0,
                   "bool": true,
                   "long": "--yarn",
-                  "description": "Hadoop component config values"
+                  "description": "Config values in the format of 'name=value'"
                 },
                 {
                   "flags": "-s, --subscription <id>",
@@ -14890,7 +14883,7 @@
                   "optional": 0,
                   "bool": true,
                   "long": "--uri",
-                  "description": "Specifies the URI for the action."
+                  "description": "Specifies the URI for the action"
                 },
                 {
                   "flags": "--name <name>",
@@ -14898,7 +14891,7 @@
                   "optional": 0,
                   "bool": true,
                   "long": "--name",
-                  "description": "Specifies the name of the action."
+                  "description": "Specifies the name of the action"
                 },
                 {
                   "flags": "--parameters <parameters>",
@@ -14906,7 +14899,7 @@
                   "optional": 0,
                   "bool": true,
                   "long": "--parameters",
-                  "description": "Specifies the parameters for the action."
+                  "description": "Specifies the parameters for the action"
                 },
                 {
                   "flags": "-s, --subscription <id>",
