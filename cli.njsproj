@@ -99,8 +99,6 @@
     <Compile Include="lib\commands\arm\role\rbacClients.js" />
     <Compile Include="lib\commands\arm\role\rbacConstants.js" />
     <Compile Include="lib\commands\arm\tag\tagUtils.js" />
-    <Compile Include="lib\commands\arm\temporary\storage.js" />
-    <Compile Include="lib\commands\arm\temporary\storageManagementClient.js" />
     <Compile Include="lib\commands\arm\apiapp\lib\azureSdkStream.js" />
     <Compile Include="lib\commands\arm\apiapp\lib\deployTracker.js" />
     <Compile Include="lib\commands\arm\apiapp\lib\propertyPrompts.js" />
