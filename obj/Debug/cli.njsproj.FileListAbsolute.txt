@@ -1,0 +1,2 @@
+C:\HDInsight\azure-xplat-cli\bin\Microsoft.NodejsTools.WebRole.dll
+C:\HDInsight\azure-xplat-cli\obj\Debug\cli.njsprojResolveAssemblyReference.cache

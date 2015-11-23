@@ -1,0 +1,411 @@
+
+'--Start--    arm feature list should work: '
+'node cli.js feature list --json'
+'--End--   arm feature list should work: 4385 ms'
+
+
+'--Start--    arm feature show should work: '
+'node cli.js feature show Microsoft.Automation dsc --json'
+'--End--   arm feature show should work: 707 ms'
+
+
+'--Start--    arm feature register should work: '
+'node cli.js feature register Microsoft.Automation dsc --json'
+'node cli.js feature show Microsoft.Automation dsc --json'
+'--End--   arm feature register should work: 1762 ms'
+
+'node cli.js group create testrg11277 --location West US --json'
+
+'--Start--    arm webapp create should work: '
+'node cli.js webapp create --resource-group testrg11277 --name webappclitest6105 --location West US --plan arm-cli-webapp-tests4388 --json'
+'--End--   arm webapp create should work: 5740 ms'
+
+
+'--Start--    arm webapp list should work: '
+'node cli.js webapp list --resource-group testrg11277 --json'
+'--End--   arm webapp list should work: 1365 ms'
+
+
+'--Start--    arm webapp show should work: '
+'node cli.js webapp show --resource-group testrg11277 --name webappclitest6105 --json'
+'--End--   arm webapp show should work: 1673 ms'
+
+
+'--Start--    arm webapp stop should work: '
+'node cli.js webapp stop --resource-group testrg11277 --name webappclitest6105 --json'
+'--End--   arm webapp stop should work: 1241 ms'
+
+
+'--Start--    arm webapp start should work: '
+'node cli.js webapp start --resource-group testrg11277 --name webappclitest6105 --json'
+'--End--   arm webapp start should work: 1033 ms'
+
+
+'--Start--    arm webapp restart should work: '
+'node cli.js webapp restart --resource-group testrg11277 --name webappclitest6105 --json'
+'--End--   arm webapp restart should work: 1775 ms'
+
+
+'--Start--    arm webapp delete should work: '
+'node cli.js webapp delete --resource-group testrg11277 --name webappclitest6105 -q --json'
+'--End--   arm webapp delete should work: 4044 ms'
+
+'node cli.js group delete testrg11277 --quiet --json'
+
+'--Start--    arm provider list should work: '
+'node cli.js provider list --json'
+'--End--   arm provider list should work: 699 ms'
+
+
+'--Start--    arm provider show should work: '
+'node cli.js provider show Microsoft.web --json'
+'--End--   arm provider show should work: 369 ms'
+
+
+'--Start--    arm provider register should work: '
+'node cli.js provider register Microsoft.AppService --json'
+'node cli.js provider show Microsoft.AppService --json'
+'--End--   arm provider register should work: 2369 ms'
+
+
+'--Start--    arm provider unregister should work: '
+'node cli.js provider unregister Microsoft.AppService --json'
+'node cli.js provider show Microsoft.AppService --json'
+
+Sat Nov 21 2015 21:23:18 GMT-0800 (Pacific Standard Time):
+{ [AssertionError: expected 'Registered' to match /.*unregister.*/gi]
+  name: 'AssertionError',
+  actual: 'Registered',
+  expected: undefined,
+  operator: 'to match /.*unregister.*/gi',
+  message: 'expected \'Registered\' to match /.*unregister.*/gi',
+  generatedMessage: true,
+  showDiff: undefined }
+'AssertionError: expected \'Registered\' to match /.*unregister.*/gi\n    at Assertion.prop.(anonymous function) (c:\\HDInsight\\azure-xplat-cli\\node_modules\\should\\lib\\should.js:61:14)\n    at c:\\HDInsight\\azure-xplat-cli\\test\\commands\\arm\\provider\\arm.provider-tests.js:82:45\n    at c:\\HDInsight\\azure-xplat-cli\\test\\framework\\cli-test.js:194:7\n    at c:\\HDInsight\\azure-xplat-cli\\test\\framework\\cli-executor.js:58:14\n    at c:\\HDInsight\\azure-xplat-cli\\node_modules\\underscore\\underscore.js:683:19\n    at process.<anonymous> (c:\\HDInsight\\azure-xplat-cli\\test\\framework\\cli-executor.js:71:7)\n    at Function.invoke (c:\\HDInsight\\azure-xplat-cli\\node_modules\\sinon\\lib\\sinon\\spy.js:172:59)\n    at process.proxy (eval at createProxy (c:\\HDInsight\\azure-xplat-cli\\node_modules\\sinon\\lib\\sinon\\spy.js:77:86), <anonymous>:1:35)\n    at AzureCli._.extend.exit (c:\\HDInsight\\azure-xplat-cli\\lib\\cli.js:167:13)\n    at callback (c:\\HDInsight\\azure-xplat-cli\\lib\\cli.js:277:18)\n    at ___ (c:\\HDInsight\\azure-xplat-cli\\lib\\commands\\arm\\providers\\provider._js:83:9)\n    at ___ (c:\\HDInsight\\azure-xplat-cli\\node_modules\\streamline\\lib\\callbacks\\runtime.js:111:13)\n    at c:\\HDInsight\\azure-xplat-cli\\lib\\util\\interaction._js:144:16\n    at ___ (c:\\HDInsight\\azure-xplat-cli\\lib\\commands\\arm\\providers\\provider._js:63:20)\n    at ___ (c:\\HDInsight\\azure-xplat-cli\\node_modules\\streamline\\lib\\callbacks\\runtime.js:111:13)\n    at c:\\HDInsight\\azure-xplat-cli\\node_modules\\azure-arm-resource\\lib\\resourceManagementClient.js:3113:14\n    at c:\\HDInsight\\azure-xplat-cli\\lib\\util\\logging.js:294:7\n    at handleRedirect (c:\\HDInsight\\azure-xplat-cli\\lib\\util\\utils.js:434:9)\n    at c:\\HDInsight\\azure-xplat-cli\\lib\\util\\utils.js:457:7\n    at handleRedirect (c:\\HDInsight\\azure-xplat-cli\\node_modules\\azure-common\\lib\\services\\filters\\redirectfilter.js:36:9)\n    at c:\\HDInsight\\azure-xplat-cli\\node_modules\\azure-common\\lib\\services\\filters\\errorhandlingfilter.js:49:7\n    at Request._callback (c:\\HDInsight\\azure-xplat-cli\\node_modules\\azure-common\\lib\\http\\request-pipeline.js:109:14)\n    at Request.self.callback (c:\\HDInsight\\azure-xplat-cli\\node_modules\\azure-common\\node_modules\\request\\request.js:199:22)\n    at emitTwo (events.js:87:13)\n    at Request.emit (events.js:172:7)\n    at Request.<anonymous> (c:\\HDInsight\\azure-xplat-cli\\node_modules\\azure-common\\node_modules\\request\\request.js:1160:14)\n    at emitOne (events.js:82:20)\n    at Request.emit (events.js:169:7)\n    at IncomingMessage.<anonymous> (c:\\HDInsight\\azure-xplat-cli\\node_modules\\azure-common\\node_modules\\request\\request.js:1111:12)\n    at emitNone (events.js:72:20)\n    at IncomingMessage.emit (events.js:166:7)\n    at endReadableNT (_stream_readable.js:893:12)\n    at doNTCallback2 (node.js:429:9)\n    at process._tickCallback (node.js:343:17)\n'
+
+2015-11-22T05:23:18.117Z - verbose: Executing command provider show
+2015-11-22T05:23:18.118Z - verbose: Getting provider information
+2015-11-22T05:23:18.118Z - silly: requestOptions
+2015-11-22T05:23:18.118Z - silly: object rawResponse=false, , method=GET, Content-Type=application/json; charset=utf-8, url=https://management.azure.com/subscriptions/2843db96-7d25-4cf5-8e67-71baed52dfb7/providers/Microsoft.AppService?api-version=2014-04-01-preview
+2015-11-22T05:23:18.682Z - silly: returnObject
+2015-11-22T05:23:18.682Z - silly: object statusCode=200, cache-control=no-cache, pragma=no-cache, content-type=application/json; charset=utf-8, expires=-1, x-ms-ratelimit-remaining-subscription-reads=14988, x-ms-request-id=d878c8fe-67ce-4730-b52f-1efca585aeff, x-ms-correlation-request-id=d878c8fe-67ce-4730-b52f-1efca585aeff, x-ms-routing-request-id=WESTUS:20151122T052318Z:d878c8fe-67ce-4730-b52f-1efca585aeff, strict-transport-security=max-age=31536000; includeSubDomains, date=Sun, 22 Nov 2015 05:23:18 GMT, connection=close, content-length=1663, body={"id":"/subscriptions/2843db96-7d25-4cf5-8e67-71baed52dfb7/providers/Microsoft.AppService","namespace":"Microsoft.AppService","authorization":{"applicationId":"dee7ba80-6a55-4f3b-a86c-746a9231ae49","roleDefinitionId":"6715d172-49c4-46f6-bb21-60512a8689dc"},"resourceTypes":[{"resourceType":"apiapps","locations":["East US","West US","South Central US","North Europe","East Asia","Japan East","West Europe","Southeast Asia","Japan West","North Central US","Central US","Brazil South","East US 2","Australia Southeast","Australia East","West India","South India","Central India"],"apiVersions":["2015-03-01-preview","2015-03-01-beta","2015-03-01-alpha"]},{"resourceType":"appIdentities","locations":["East US","West US","South Central US","North Europe","East Asia","Japan East","West Europe","Southeast Asia","Japan West","North Central US","Central US","Brazil South","East US 2","Australia Southeast","Australia East","West India","South India","Central India"],"apiVersions":["2015-03-01-preview","2015-03-01-beta","2015-03-01-alpha"]},{"resourceType":"gateways","locations":["East US","West US","South Central US","North Europe","East Asia","Japan East","West Europe","Southeast Asia","Japan West","North Central US","Central US","Brazil South","East US 2","Australia Southeast","Australia East","West India","South India","Central India"],"apiVersions":["2015-03-01-preview","2015-03-01-beta","2015-03-01-alpha"]},{"resourceType":"deploymenttemplates","locations":[],"apiVersions":["2015-03-01-preview","2015-03-01-alpha"]},{"resourceType":"operations","locations":[],"apiVersions":["2015-03-01-preview","2015-03-01-alpha"]}],"registrationState":"Registered"}
+2015-11-22T05:23:18.682Z - silly: object resourceTypes=[apiVersions=[2015-03-01-preview, 2015-03-01-beta, 2015-03-01-alpha], locations=[East US, West US, South Central US, North Europe, East Asia, Japan East, West Europe, Southeast Asia, Japan West, North Central US, Central US, Brazil South, East US 2, Australia Southeast, Australia East, West India, South India, Central India], , name=apiapps, apiVersions=[2015-03-01-preview, 2015-03-01-beta, 2015-03-01-alpha], locations=[East US, West US, South Central US, North Europe, East Asia, Japan East, West Europe, Southeast Asia, Japan West, North Central US, Central US, Brazil South, East US 2, Australia Southeast, Australia East, West India, South India, Central India], , name=appIdentities, apiVersions=[2015-03-01-preview, 2015-03-01-beta, 2015-03-01-alpha], locations=[East US, West US, South Central US, North Europe, East Asia, Japan East, West Europe, Southeast Asia, Japan West, North Central US, Central US, Brazil South, East US 2, Australia Southeast, Australia East, West India, South India, Central India], , name=gateways, apiVersions=[2015-03-01-preview, 2015-03-01-alpha], locations=[], , name=deploymenttemplates, apiVersions=[2015-03-01-preview, 2015-03-01-alpha], locations=[], , name=operations], id=/subscriptions/2843db96-7d25-4cf5-8e67-71baed52dfb7/providers/Microsoft.AppService, namespace=Microsoft.AppService, registrationState=Registered
+{
+  "resourceTypes": [
+    {
+      "apiVersions": [
+        "2015-03-01-preview",
+        "2015-03-01-beta",
+        "2015-03-01-alpha"
+      ],
+      "locations": [
+        "East US",
+        "West US",
+        "South Central US",
+        "North Europe",
+        "East Asia",
+        "Japan East",
+        "West Europe",
+        "Southeast Asia",
+        "Japan West",
+        "North Central US",
+        "Central US",
+        "Brazil South",
+        "East US 2",
+        "Australia Southeast",
+        "Australia East",
+        "West India",
+        "South India",
+        "Central India"
+      ],
+      "properties": {},
+      "name": "apiapps"
+    },
+    {
+      "apiVersions": [
+        "2015-03-01-preview",
+        "2015-03-01-beta",
+        "2015-03-01-alpha"
+      ],
+      "locations": [
+        "East US",
+        "West US",
+        "South Central US",
+        "North Europe",
+        "East Asia",
+        "Japan East",
+        "West Europe",
+        "Southeast Asia",
+        "Japan West",
+        "North Central US",
+        "Central US",
+        "Brazil South",
+        "East US 2",
+        "Australia Southeast",
+        "Australia East",
+        "West India",
+        "South India",
+        "Central India"
+      ],
+      "properties": {},
+      "name": "appIdentities"
+    },
+    {
+      "apiVersions": [
+        "2015-03-01-preview",
+        "2015-03-01-beta",
+        "2015-03-01-alpha"
+      ],
+      "locations": [
+        "East US",
+        "West US",
+        "South Central US",
+        "North Europe",
+        "East Asia",
+        "Japan East",
+        "West Europe",
+        "Southeast Asia",
+        "Japan West",
+        "North Central US",
+        "Central US",
+        "Brazil South",
+        "East US 2",
+        "Australia Southeast",
+        "Australia East",
+        "West India",
+        "South India",
+        "Central India"
+      ],
+      "properties": {},
+      "name": "gateways"
+    },
+    {
+      "apiVersions": [
+        "2015-03-01-preview",
+        "2015-03-01-alpha"
+      ],
+      "locations": [],
+      "properties": {},
+      "name": "deploymenttemplates"
+    },
+    {
+      "apiVersions": [
+        "2015-03-01-preview",
+        "2015-03-01-alpha"
+      ],
+      "locations": [],
+      "properties": {},
+      "name": "operations"
+    }
+  ],
+  "id": "/subscriptions/2843db96-7d25-4cf5-8e67-71baed52dfb7/providers/Microsoft.AppService",
+  "namespace": "Microsoft.AppService",
+  "registrationState": "Registered"
+}
+2015-11-22T05:23:18.683Z - verbose: provider show command OK
+
+'--End--    1)  arm provider unregister should work'
+
+
+'--Start--    arm provider operations show for all providers should work: '
+'node cli.js provider operations show * --json'
+'--End--   arm provider operations show for all providers should work: 660 ms'
+
+
+'--Start--    arm provider operations show for all operations of Microsoft.Authorization provider should work: '
+'node cli.js provider operations show -o Microsoft.Authorization/* --json'
+'--End--   arm provider operations show for all operations of Microsoft.Authorization provider should work: 395 ms'
+
+
+'--Start--    arm provider operations show for all operations of case insensitive provider name should work: '
+'node cli.js provider operations show -o MICROSOFT.inSiGHTs/* --json'
+'--End--   arm provider operations show for all operations of case insensitive provider name should work: 329 ms'
+
+
+'--Start--    arm provider operations show for all read operations of Microsoft.Authorization should work: '
+'node cli.js provider operations show --operationSearchString Microsoft.Authorization/*/read --json'
+'--End--   arm provider operations show for all read operations of Microsoft.Authorization should work: 368 ms'
+
+
+'--Start--    arm provider operations show for all read operations of all providers should work: '
+'node cli.js provider operations show --operationSearchString */read --json'
+'--End--   arm provider operations show for all read operations of all providers should work: 577 ms'
+
+
+'--Start--    arm provider operations show for a particular action should work: '
+'node cli.js provider operations show --operationSearchString Microsoft.OperationalInsights/workspaces/usages/read --json'
+'--End--   arm provider operations show for a particular action should work: 377 ms'
+
+
+'--Start--    arm provider operations show for a string with wildcard and other characters should result in error: '
+'node cli.js provider operations show --operationSearchString Microsoft.OperationalInsights*/* --json'
+
+Sat Nov 21 2015 21:23:21 GMT-0800 (Pacific Standard Time):
+{ [Error: Individual parts in the search string should either be just a * or not contain *.]
+  stack: [Getter/Setter],
+  __frame: undefined,
+  rawStack: [Getter] }
+'Error: Individual parts in the search string should either be just a * or not contain *.\n  <<< async stack >>>\n    at c:\\HDInsight\\azure-xplat-cli\\lib\\commands\\arm\\providers\\provider.operations._js:65:15\n    at Array.forEach (native)\n    at validateOperationString (c:\\HDInsight\\azure-xplat-cli\\lib\\commands\\arm\\providers\\provider.operations._js:63:16)\n    at __1 (c:\\HDInsight\\azure-xplat-cli\\lib\\commands\\arm\\providers\\provider.operations._js:25:7)\n  <<< raw stack >>>\n    at c:\\HDInsight\\azure-xplat-cli\\lib\\commands\\arm\\providers\\provider.operations._js:65:15\n    at Array.forEach (native)\n    at validateOperationString (c:\\HDInsight\\azure-xplat-cli\\lib\\commands\\arm\\providers\\provider.operations._js:63:16)\n    at __$__1 (c:\\HDInsight\\azure-xplat-cli\\lib\\commands\\arm\\providers\\provider.operations._js:25:7)\n    at __func (c:\\HDInsight\\azure-xplat-cli\\node_modules\\streamline\\lib\\callbacks\\runtime.js:47:5)\n    at AzureCli.__1 (c:\\HDInsight\\azure-xplat-cli\\lib\\commands\\arm\\providers\\provider.operations._js:22:12)\n    at AzureCli.<anonymous> (c:\\HDInsight\\azure-xplat-cli\\lib\\cli.js:223:12)\n    at AzureCli.<anonymous> (c:\\HDInsight\\azure-xplat-cli\\node_modules\\commander\\lib\\commander.js:235:8)\n    at emitTwo (events.js:87:13)\n    at AzureCli.emit (events.js:172:7)\n    at AzureCli.Command.parseArgs (c:\\HDInsight\\azure-xplat-cli\\node_modules\\commander\\lib\\commander.js:405:12)\n    at AzureCli.Command.parse (c:\\HDInsight\\azure-xplat-cli\\node_modules\\commander\\lib\\commander.js:351:15)\n    at AzureCli.<anonymous> (c:\\HDInsight\\azure-xplat-cli\\lib\\cli.js:521:20)\n    at emitOne (events.js:77:13)\n    at AzureCli.emit (events.js:169:7)\n    at AzureCli.Command.parseArgs (c:\\HDInsight\\azure-xplat-cli\\node_modules\\commander\\lib\\commander.js:407:12)\n    at AzureCli.Command.parse (c:\\HDInsight\\azure-xplat-cli\\node_modules\\commander\\lib\\commander.js:351:15)\n    at AzureCli.<anonymous> (c:\\HDInsight\\azure-xplat-cli\\lib\\cli.js:521:20)\n    at emitOne (events.js:77:13)\n    at AzureCli.emit (events.js:169:7)\n    at AzureCli.Command.parseArgs (c:\\HDInsight\\azure-xplat-cli\\node_modules\\commander\\lib\\commander.js:407:12)\n    at AzureCli.Command.parse (c:\\HDInsight\\azure-xplat-cli\\node_modules\\commander\\lib\\commander.js:351:15)\n    at execute (c:\\HDInsight\\azure-xplat-cli\\test\\framework\\cli-executor.js:95:9)\n    at ARMCLITest._.extend.execute (c:\\HDInsight\\azure-xplat-cli\\test\\framework\\cli-test.js:189:5)\n    at Context.<anonymous> (c:\\HDInsight\\azure-xplat-cli\\test\\commands\\arm\\provider\\arm.provider-tests.js:161:13)\n    at Test.Runnable.run (c:\\HDInsight\\azure-xplat-cli\\node_modules\\mocha\\lib\\runnable.js:204:15)\n    at Runner.runTest (c:\\HDInsight\\azure-xplat-cli\\node_modules\\mocha\\lib\\runner.js:378:10)\n    at c:\\HDInsight\\azure-xplat-cli\\node_modules\\mocha\\lib\\runner.js:456:12\n    at next (c:\\HDInsight\\azure-xplat-cli\\node_modules\\mocha\\lib\\runner.js:303:14)\n    at c:\\HDInsight\\azure-xplat-cli\\node_modules\\mocha\\lib\\runner.js:313:7\n    at next (c:\\HDInsight\\azure-xplat-cli\\node_modules\\mocha\\lib\\runner.js:251:23)\n    at Immediate._onImmediate (c:\\HDInsight\\azure-xplat-cli\\node_modules\\mocha\\lib\\runner.js:280:5)\n    at processImmediate [as _immediateCallback] (timers.js:374:17)\n'
+'--End--   arm provider operations show for a string with wildcard and other characters should result in error: 148 ms'
+
+
+'--Start--    arm provider operations show for an invalid action should return empty operation list: '
+'node cli.js provider operations show --operationSearchString Microsoft.OperationalInsights/workspaces/usages/blah --json'
+'--End--   arm provider operations show for an invalid action should return empty operation list: 389 ms'
+
+
+'--Start--    arm provider operations show for a specific action of a non existing provider should fail: '
+'node cli.js provider operations show --operationSearchString InvalidOperation/blah --json'
+
+Sat Nov 21 2015 21:23:22 GMT-0800 (Pacific Standard Time):
+{ [Error: Provider 'InvalidOperation' not found.]
+  stack: [Getter/Setter],
+  code: 'ProviderNotFound',
+  statusCode: 404,
+  requestId: 'fb8d2c65-af01-4451-bd54-0524a58ab811',
+  __frame: 
+   { name: '__1',
+     line: 155,
+     file: 'c:\\HDInsight\\azure-xplat-cli\\lib\\commands\\arm\\providers\\provider.operations._js',
+     prev: 
+      { name: 'getProviderOperationsMetadata',
+        line: 153,
+        file: 'c:\\HDInsight\\azure-xplat-cli\\lib\\commands\\arm\\providers\\provider.operations._js',
+        prev: 
+         { name: 'getProviderOperationsWithoutWildCard',
+           line: 119,
+           file: 'c:\\HDInsight\\azure-xplat-cli\\lib\\commands\\arm\\providers\\provider.operations._js',
+           prev: 
+            { name: '__1',
+              line: 48,
+              file: 'c:\\HDInsight\\azure-xplat-cli\\lib\\commands\\arm\\providers\\provider.operations._js',
+              prev: undefined,
+              calls: 1,
+              active: false,
+              offset: 12,
+              col: 36 },
+           calls: 1,
+           active: false,
+           offset: 6,
+           col: 42 },
+        calls: 1,
+        active: false,
+        offset: 1,
+        col: 11 },
+     calls: 0,
+     active: false,
+     offset: 1,
+     col: 47 },
+  rawStack: [Getter] }
+'Error: Provider \'InvalidOperation\' not found.\n  <<< async stack >>>\n  at __1 (c:\\HDInsight\\azure-xplat-cli\\lib\\commands\\arm\\providers\\provider.operations._js:156:48)\n  at getProviderOperationsMetadata (c:\\HDInsight\\azure-xplat-cli\\lib\\commands\\arm\\providers\\provider.operations._js:154:12)\n  at getProviderOperationsWithoutWildCard (c:\\HDInsight\\azure-xplat-cli\\lib\\commands\\arm\\providers\\provider.operations._js:125:43)\n  at __1 (c:\\HDInsight\\azure-xplat-cli\\lib\\commands\\arm\\providers\\provider.operations._js:60:37)\n  <<< raw stack >>>\n    at Function.ServiceClient._normalizeError (c:\\HDInsight\\azure-xplat-cli\\node_modules\\azure-common\\lib\\services\\serviceclient.js:815:23)\n    at c:\\HDInsight\\azure-xplat-cli\\node_modules\\azure-common\\lib\\services\\filters\\errorhandlingfilter.js:44:29\n    at Request._callback (c:\\HDInsight\\azure-xplat-cli\\node_modules\\azure-common\\lib\\http\\request-pipeline.js:109:14)\n    at Request.self.callback (c:\\HDInsight\\azure-xplat-cli\\node_modules\\azure-common\\node_modules\\request\\request.js:199:22)\n    at emitTwo (events.js:87:13)\n    at Request.emit (events.js:172:7)\n    at Request.<anonymous> (c:\\HDInsight\\azure-xplat-cli\\node_modules\\azure-common\\node_modules\\request\\request.js:1160:14)\n    at emitOne (events.js:82:20)\n    at Request.emit (events.js:169:7)\n    at IncomingMessage.<anonymous> (c:\\HDInsight\\azure-xplat-cli\\node_modules\\azure-common\\node_modules\\request\\request.js:1111:12)\n    at emitNone (events.js:72:20)\n    at IncomingMessage.emit (events.js:166:7)\n    at endReadableNT (_stream_readable.js:893:12)\n    at doNTCallback2 (node.js:429:9)\n    at process._tickCallback (node.js:343:17)\n'
+'--End--   arm provider operations show for a specific action of a non existing provider should fail: 367 ms'
+
+
+'--Start--    arm provider operations show for all actions of a non existing provider should fail: '
+'node cli.js provider operations show --operationSearchString InvalidOperation/* --json'
+
+Sat Nov 21 2015 21:23:23 GMT-0800 (Pacific Standard Time):
+{ [Error: Provider 'InvalidOperation' not found.]
+  stack: [Getter/Setter],
+  code: 'ProviderNotFound',
+  statusCode: 404,
+  requestId: '1265a2f3-7cac-42e7-8e05-f8a43f0455fb',
+  __frame: 
+   { name: '__1',
+     line: 155,
+     file: 'c:\\HDInsight\\azure-xplat-cli\\lib\\commands\\arm\\providers\\provider.operations._js',
+     prev: 
+      { name: 'getProviderOperationsMetadata',
+        line: 153,
+        file: 'c:\\HDInsight\\azure-xplat-cli\\lib\\commands\\arm\\providers\\provider.operations._js',
+        prev: 
+         { name: 'getProviderOperationsWithWildCard',
+           line: 91,
+           file: 'c:\\HDInsight\\azure-xplat-cli\\lib\\commands\\arm\\providers\\provider.operations._js',
+           prev: 
+            { name: '__1',
+              line: 48,
+              file: 'c:\\HDInsight\\azure-xplat-cli\\lib\\commands\\arm\\providers\\provider.operations._js',
+              prev: undefined,
+              calls: 1,
+              active: false,
+              offset: 9,
+              col: 36 },
+           calls: 1,
+           active: false,
+           offset: 11,
+           col: 53 },
+        calls: 1,
+        active: false,
+        offset: 1,
+        col: 11 },
+     calls: 0,
+     active: false,
+     offset: 1,
+     col: 47 },
+  rawStack: [Getter] }
+'Error: Provider \'InvalidOperation\' not found.\n  <<< async stack >>>\n  at __1 (c:\\HDInsight\\azure-xplat-cli\\lib\\commands\\arm\\providers\\provider.operations._js:156:48)\n  at getProviderOperationsMetadata (c:\\HDInsight\\azure-xplat-cli\\lib\\commands\\arm\\providers\\provider.operations._js:154:12)\n  at getProviderOperationsWithWildCard (c:\\HDInsight\\azure-xplat-cli\\lib\\commands\\arm\\providers\\provider.operations._js:102:54)\n  at __1 (c:\\HDInsight\\azure-xplat-cli\\lib\\commands\\arm\\providers\\provider.operations._js:57:37)\n  <<< raw stack >>>\n    at Function.ServiceClient._normalizeError (c:\\HDInsight\\azure-xplat-cli\\node_modules\\azure-common\\lib\\services\\serviceclient.js:815:23)\n    at c:\\HDInsight\\azure-xplat-cli\\node_modules\\azure-common\\lib\\services\\filters\\errorhandlingfilter.js:44:29\n    at Request._callback (c:\\HDInsight\\azure-xplat-cli\\node_modules\\azure-common\\lib\\http\\request-pipeline.js:109:14)\n    at Request.self.callback (c:\\HDInsight\\azure-xplat-cli\\node_modules\\azure-common\\node_modules\\request\\request.js:199:22)\n    at emitTwo (events.js:87:13)\n    at Request.emit (events.js:172:7)\n    at Request.<anonymous> (c:\\HDInsight\\azure-xplat-cli\\node_modules\\azure-common\\node_modules\\request\\request.js:1160:14)\n    at emitOne (events.js:82:20)\n    at Request.emit (events.js:169:7)\n    at IncomingMessage.<anonymous> (c:\\HDInsight\\azure-xplat-cli\\node_modules\\azure-common\\node_modules\\request\\request.js:1111:12)\n    at emitNone (events.js:72:20)\n    at IncomingMessage.emit (events.js:166:7)\n    at endReadableNT (_stream_readable.js:893:12)\n    at doNTCallback2 (node.js:429:9)\n    at process._tickCallback (node.js:343:17)\n'
+'--End--   arm provider operations show for all actions of a non existing provider should fail: 363 ms'
+
+
+'--Start--    arm resource create should work without switches: '
+'node cli.js group create xTestResource9897 --location South Central US --json'
+'node cli.js resource create xTestResource9897 xTestGrpRes4249 Microsoft.Web/sites South Central US 2014-04-01 -p { "Name": "xTestGrpRes4249", "SiteMode": "Limited", "ComputeMode": "Shared" } --json'
+'node cli.js group show xTestResource9897 --json'
+'node cli.js group delete xTestResource9897 --quiet --json'
+'--End--   arm resource create should work without switches: 117186 ms'
+
+
+'--Start--    arm resource create should fail if the group does not exist: '
+'node cli.js resource create xTestResource5270 xTestGrpRes1726 Microsoft.Web/sites South Central US 2014-04-01 -p { "Name": "xTestGrpRes1726", "SiteMode": "Limited", "ComputeMode": "Shared" } --json'
+
+Sat Nov 21 2015 21:25:22 GMT-0800 (Pacific Standard Time):
+{ [Error: Resource group 'xTestResource5270' could not be found.]
+  stack: [Getter/Setter],
+  code: 'ResourceGroupNotFound',
+  statusCode: 404,
+  requestId: '8895bab7-90d4-42d6-8dff-4b2ebb3beb90',
+  __frame: 
+   { name: '__2',
+     line: 123,
+     file: 'c:\\HDInsight\\azure-xplat-cli\\lib\\commands\\arm\\resource\\resource._js',
+     prev: 
+      { name: 'resource_createResource__3',
+        line: 72,
+        file: 'c:\\HDInsight\\azure-xplat-cli\\lib\\commands\\arm\\resource\\resource._js',
+        prev: 
+         { name: '__1',
+           line: 51,
+           file: 'c:\\HDInsight\\azure-xplat-cli\\lib\\commands\\arm\\resource\\resource._js',
+           prev: undefined,
+           calls: 1,
+           active: false,
+           offset: 1,
+           col: 15 },
+        calls: 2,
+        active: false,
+        offset: 50,
+        col: 20 },
+     calls: 0,
+     active: false,
+     offset: 1,
+     col: 39 },
+  rawStack: [Getter] }
+'Error: Resource group \'xTestResource5270\' could not be found.\n  <<< async stack >>>\n  at __2 (c:\\HDInsight\\azure-xplat-cli\\lib\\commands\\arm\\resource\\resource._js:124:40)\n  at resource_createResource__3 (c:\\HDInsight\\azure-xplat-cli\\lib\\commands\\arm\\resource\\resource._js:122:21)\n  at __1 (c:\\HDInsight\\azure-xplat-cli\\lib\\commands\\arm\\resource\\resource._js:52:16)\n  <<< raw stack >>>\n    at Function.ServiceClient._normalizeError (c:\\HDInsight\\azure-xplat-cli\\node_modules\\azure-common\\lib\\services\\serviceclient.js:815:23)\n    at c:\\HDInsight\\azure-xplat-cli\\node_modules\\azure-common\\lib\\services\\filters\\errorhandlingfilter.js:44:29\n    at Request._callback (c:\\HDInsight\\azure-xplat-cli\\node_modules\\azure-common\\lib\\http\\request-pipeline.js:109:14)\n    at Request.self.callback (c:\\HDInsight\\azure-xplat-cli\\node_modules\\azure-common\\node_modules\\request\\request.js:199:22)\n    at emitTwo (events.js:87:13)\n    at Request.emit (events.js:172:7)\n    at Request.<anonymous> (c:\\HDInsight\\azure-xplat-cli\\node_modules\\azure-common\\node_modules\\request\\request.js:1160:14)\n    at emitOne (events.js:82:20)\n    at Request.emit (events.js:169:7)\n    at IncomingMessage.<anonymous> (c:\\HDInsight\\azure-xplat-cli\\node_modules\\azure-common\\node_modules\\request\\request.js:1111:12)\n    at emitNone (events.js:72:20)\n    at IncomingMessage.emit (events.js:166:7)\n    at endReadableNT (_stream_readable.js:893:12)\n    at doNTCallback2 (node.js:429:9)\n    at process._tickCallback (node.js:343:17)\n'
+'--End--   arm resource create should fail if the group does not exist: 1760 ms'
+
+
+'--Start--    arm resource delete should work: '
+'node cli.js group create xTestResource8070 --location South Central US --json'
+'node cli.js resource create xTestResource8070 xTestGrpRes2060 Microsoft.Web/sites South Central US 2014-04-01 -p { "Name": "xTestGrpRes2060", "SiteMode": "Limited", "ComputeMode": "Shared" } --json'
+'node cli.js resource delete xTestResource8070 xTestGrpRes2060 Microsoft.Web/sites 2014-04-01 --quiet --json'
+'node cli.js group show xTestResource8070 --json'
+'node cli.js group delete xTestResource8070 --quiet --json'
+'--End--   arm resource delete should work: 60576 ms'
+
+
+'--Start--    arm resource list should work without filters: '
+'node cli.js group create xTestResource9382 --location South Central US --json'
+'node cli.js resource create xTestResource9382 xTestGrpRes2126 Microsoft.Web/sites South Central US 2014-04-01 -p { "Name": "xTestGrpRes2126", "SiteMode": "Limited", "ComputeMode": "Shared" } --json'
+'node cli.js resource list xTestResource9382 --json'
+'node cli.js group delete xTestResource9382 --quiet --json'

@@ -1,0 +1,75 @@
+'--End--    1)  arm hdinsight "before all" hook'
+
+'node cli.js group delete xplatTestGroupHDInsightClusterCreate4787 --quiet --json'
+
+Sat Nov 21 2015 21:29:54 GMT-0800 (Pacific Standard Time):
+{ [Error: Resource group 'xplatTestGroupHDInsightClusterCreate4787' could not be found.]
+  stack: [Getter/Setter],
+  code: 'ResourceGroupNotFound',
+  statusCode: 404,
+  requestId: '8a9ba86b-1235-4140-bd10-70ce168ca4d3',
+  __frame: 
+   { name: '__4',
+     line: 133,
+     file: 'c:\\HDInsight\\azure-xplat-cli\\lib\\commands\\arm\\group\\group._js',
+     prev: undefined,
+     calls: 0,
+     active: false,
+     offset: 9,
+     col: 30 },
+  rawStack: [Getter] }
+'Error: Resource group \'xplatTestGroupHDInsightClusterCreate4787\' could not be found.\n  <<< async stack >>>\n  at __4 (c:\\HDInsight\\azure-xplat-cli\\lib\\commands\\arm\\group\\group._js:142:31)\n  <<< raw stack >>>\n    at Function.ServiceClient._normalizeError (c:\\HDInsight\\azure-xplat-cli\\node_modules\\azure-common\\lib\\services\\serviceclient.js:815:23)\n    at c:\\HDInsight\\azure-xplat-cli\\node_modules\\azure-common\\lib\\services\\filters\\errorhandlingfilter.js:44:29\n    at Request._callback (c:\\HDInsight\\azure-xplat-cli\\node_modules\\azure-common\\lib\\http\\request-pipeline.js:109:14)\n    at Request.self.callback (c:\\HDInsight\\azure-xplat-cli\\node_modules\\azure-common\\node_modules\\request\\request.js:199:22)\n    at emitTwo (events.js:87:13)\n    at Request.emit (events.js:172:7)\n    at Request.<anonymous> (c:\\HDInsight\\azure-xplat-cli\\node_modules\\azure-common\\node_modules\\request\\request.js:1160:14)\n    at emitOne (events.js:82:20)\n    at Request.emit (events.js:169:7)\n    at IncomingMessage.<anonymous> (c:\\HDInsight\\azure-xplat-cli\\node_modules\\azure-common\\node_modules\\request\\request.js:1111:12)\n    at emitNone (events.js:72:20)\n    at IncomingMessage.emit (events.js:166:7)\n    at endReadableNT (_stream_readable.js:893:12)\n    at doNTCallback2 (node.js:429:9)\n    at process._tickCallback (node.js:343:17)\n'
+
+Sat Nov 21 2015 21:29:54 GMT-0800 (Pacific Standard Time):
+{ [AssertionError: expected 1 to be 0]
+  name: 'AssertionError',
+  actual: 1,
+  expected: 0,
+  operator: 'to be',
+  message: 'expected 1 to be 0',
+  generatedMessage: true,
+  showDiff: true }
+'AssertionError: expected 1 to be 0\n    at Assertion.prop.(anonymous function) (c:\\HDInsight\\azure-xplat-cli\\node_modules\\should\\lib\\should.js:61:14)\n    at c:\\HDInsight\\azure-xplat-cli\\test\\util\\hdinsightTestUtil.js:65:32\n    at c:\\HDInsight\\azure-xplat-cli\\test\\framework\\cli-test.js:194:7\n    at c:\\HDInsight\\azure-xplat-cli\\test\\framework\\cli-executor.js:58:14\n    at c:\\HDInsight\\azure-xplat-cli\\node_modules\\underscore\\underscore.js:683:19\n    at process.<anonymous> (c:\\HDInsight\\azure-xplat-cli\\test\\framework\\cli-executor.js:71:7)\n    at Function.invoke (c:\\HDInsight\\azure-xplat-cli\\node_modules\\sinon\\lib\\sinon\\spy.js:172:59)\n    at process.proxy (eval at createProxy (c:\\HDInsight\\azure-xplat-cli\\node_modules\\sinon\\lib\\sinon\\spy.js:77:86), <anonymous>:1:35)\n    at AzureCli._.extend.exit (c:\\HDInsight\\azure-xplat-cli\\lib\\cli.js:167:13)\n    at callback (c:\\HDInsight\\azure-xplat-cli\\lib\\cli.js:274:16)\n    at ___ (c:\\HDInsight\\azure-xplat-cli\\lib\\commands\\arm\\group\\group._js:179:21)\n    at __tryCatch (c:\\HDInsight\\azure-xplat-cli\\node_modules\\streamline\\lib\\callbacks\\runtime.js:150:4)\n    at ___ (c:\\HDInsight\\azure-xplat-cli\\lib\\commands\\arm\\group\\group._js:175:17)\n    at __$__4 (c:\\HDInsight\\azure-xplat-cli\\lib\\commands\\arm\\group\\group._js:172:19)\n    at __tryCatch (c:\\HDInsight\\azure-xplat-cli\\node_modules\\streamline\\lib\\callbacks\\runtime.js:150:4)\n    at ___ (c:\\HDInsight\\azure-xplat-cli\\lib\\commands\\arm\\group\\group._js:170:17)\n    at ___ (c:\\HDInsight\\azure-xplat-cli\\lib\\commands\\arm\\group\\group._js:174:17)\n    at ___ (c:\\HDInsight\\azure-xplat-cli\\node_modules\\streamline\\lib\\callbacks\\runtime.js:108:14)\n    at c:\\HDInsight\\azure-xplat-cli\\node_modules\\azure-arm-resource\\lib\\resourceManagementClient.js:4577:16\n    at c:\\HDInsight\\azure-xplat-cli\\node_modules\\azure-arm-resource\\lib\\resourceManagementClient.js:4249:16\n    at c:\\HDInsight\\azure-xplat-cli\\lib\\util\\logging.js:294:7\n    at handleRedirect (c:\\HDInsight\\azure-xplat-cli\\lib\\util\\utils.js:434:9)\n    at c:\\HDInsight\\azure-xplat-cli\\lib\\util\\utils.js:457:7\n    at handleRedirect (c:\\HDInsight\\azure-xplat-cli\\node_modules\\azure-common\\lib\\services\\filters\\redirectfilter.js:36:9)\n    at c:\\HDInsight\\azure-xplat-cli\\node_modules\\azure-common\\lib\\services\\filters\\errorhandlingfilter.js:49:7\n    at Request._callback (c:\\HDInsight\\azure-xplat-cli\\node_modules\\azure-common\\lib\\http\\request-pipeline.js:109:14)\n    at Request.self.callback (c:\\HDInsight\\azure-xplat-cli\\node_modules\\azure-common\\node_modules\\request\\request.js:199:22)\n    at emitTwo (events.js:87:13)\n    at Request.emit (events.js:172:7)\n    at Request.<anonymous> (c:\\HDInsight\\azure-xplat-cli\\node_modules\\azure-common\\node_modules\\request\\request.js:1160:14)\n    at emitOne (events.js:82:20)\n    at Request.emit (events.js:169:7)\n    at IncomingMessage.<anonymous> (c:\\HDInsight\\azure-xplat-cli\\node_modules\\azure-common\\node_modules\\request\\request.js:1111:12)\n    at emitNone (events.js:72:20)\n    at IncomingMessage.emit (events.js:166:7)\n    at endReadableNT (_stream_readable.js:893:12)\n    at doNTCallback2 (node.js:429:9)\n    at process._tickCallback (node.js:343:17)\n'
+
+2015-11-22T05:29:54.512Z - verbose: Error: Resource group 'xplatTestGroupHDInsightClusterCreate4787' could not be found.
+  <<< async stack >>>
+  at __4 (c:\HDInsight\azure-xplat-cli\lib\commands\arm\group\group._js:142:31)
+  <<< raw stack >>>
+    at Function.ServiceClient._normalizeError (c:\HDInsight\azure-xplat-cli\node_modules\azure-common\lib\services\serviceclient.js:815:23)
+    at c:\HDInsight\azure-xplat-cli\node_modules\azure-common\lib\services\filters\errorhandlingfilter.js:44:29
+    at Request._callback (c:\HDInsight\azure-xplat-cli\node_modules\azure-common\lib\http\request-pipeline.js:109:14)
+    at Request.self.callback (c:\HDInsight\azure-xplat-cli\node_modules\azure-common\node_modules\request\request.js:199:22)
+    at emitTwo (events.js:87:13)
+    at Request.emit (events.js:172:7)
+    at Request.<anonymous> (c:\HDInsight\azure-xplat-cli\node_modules\azure-common\node_modules\request\request.js:1160:14)
+    at emitOne (events.js:82:20)
+    at Request.emit (events.js:169:7)
+    at IncomingMessage.<anonymous> (c:\HDInsight\azure-xplat-cli\node_modules\azure-common\node_modules\request\request.js:1111:12)
+    at emitNone (events.js:72:20)
+    at IncomingMessage.emit (events.js:166:7)
+    at endReadableNT (_stream_readable.js:893:12)
+    at doNTCallback2 (node.js:429:9)
+    at process._tickCallback (node.js:343:17)
+
+2015-11-22T05:29:54.512Z - error: group delete command failed
+
+
+'--End--    2)  arm hdinsight "after all" hook'
+
+
+'0 passing (551ms)'
+'2 failing'
+
+'1) arm hdinsight "before all" hook'
+
+'SyntaxError: Unexpected token ﻿'
+
+'SyntaxError: Unexpected token ﻿\n    at Object.parse (native)\n    at c:\\HDInsight\\azure-xplat-cli\\test\\commands\\arm\\hdinsight\\arm.cluster-create-tests.js:69:43\n    at ARMCLITest._.extend.setupSuite (c:\\HDInsight\\azure-xplat-cli\\test\\framework\\cli-test.js:249:5)\n    at Context.<anonymous> (c:\\HDInsight\\azure-xplat-cli\\test\\commands\\arm\\hdinsight\\arm.cluster-create-tests.js:61:19)\n    at Hook.Runnable.run (c:\\HDInsight\\azure-xplat-cli\\node_modules\\mocha\\lib\\runnable.js:204:15)\n    at next (c:\\HDInsight\\azure-xplat-cli\\node_modules\\mocha\\lib\\runner.js:263:10)\n    at Immediate._onImmediate (c:\\HDInsight\\azure-xplat-cli\\node_modules\\mocha\\lib\\runner.js:280:5)\n    at processImmediate [as _immediateCallback] (timers.js:374:17)\n'
+
+'2) arm hdinsight "after all" hook'
+
+'Uncaught AssertionError: expected 1 to be 0'
+
+'AssertionError: expected 1 to be 0\n    at Assertion.prop.(anonymous function) (c:\\HDInsight\\azure-xplat-cli\\node_modules\\should\\lib\\should.js:61:14)\n    at c:\\HDInsight\\azure-xplat-cli\\test\\util\\hdinsightTestUtil.js:65:32\n    at c:\\HDInsight\\azure-xplat-cli\\test\\framework\\cli-test.js:194:7\n    at c:\\HDInsight\\azure-xplat-cli\\test\\framework\\cli-executor.js:58:14\n    at c:\\HDInsight\\azure-xplat-cli\\node_modules\\underscore\\underscore.js:683:19\n    at process.<anonymous> (c:\\HDInsight\\azure-xplat-cli\\test\\framework\\cli-executor.js:71:7)\n    at Function.invoke (c:\\HDInsight\\azure-xplat-cli\\node_modules\\sinon\\lib\\sinon\\spy.js:172:59)\n    at process.proxy (eval at createProxy (c:\\HDInsight\\azure-xplat-cli\\node_modules\\sinon\\lib\\sinon\\spy.js:77:86), <anonymous>:1:35)\n    at AzureCli._.extend.exit (c:\\HDInsight\\azure-xplat-cli\\lib\\cli.js:167:13)\n    at callback (c:\\HDInsight\\azure-xplat-cli\\lib\\cli.js:274:16)\n    at ___ (c:\\HDInsight\\azure-xplat-cli\\lib\\commands\\arm\\group\\group._js:179:21)\n    at __tryCatch (c:\\HDInsight\\azure-xplat-cli\\node_modules\\streamline\\lib\\callbacks\\runtime.js:150:4)\n    at ___ (c:\\HDInsight\\azure-xplat-cli\\lib\\commands\\arm\\group\\group._js:175:17)\n    at __$__4 (c:\\HDInsight\\azure-xplat-cli\\lib\\commands\\arm\\group\\group._js:172:19)\n    at __tryCatch (c:\\HDInsight\\azure-xplat-cli\\node_modules\\streamline\\lib\\callbacks\\runtime.js:150:4)\n    at ___ (c:\\HDInsight\\azure-xplat-cli\\lib\\commands\\arm\\group\\group._js:170:17)\n    at ___ (c:\\HDInsight\\azure-xplat-cli\\lib\\commands\\arm\\group\\group._js:174:17)\n    at ___ (c:\\HDInsight\\azure-xplat-cli\\node_modules\\streamline\\lib\\callbacks\\runtime.js:108:14)\n    at c:\\HDInsight\\azure-xplat-cli\\node_modules\\azure-arm-resource\\lib\\resourceManagementClient.js:4577:16\n    at c:\\HDInsight\\azure-xplat-cli\\node_modules\\azure-arm-resource\\lib\\resourceManagementClient.js:4249:16\n    at c:\\HDInsight\\azure-xplat-cli\\lib\\util\\logging.js:294:7\n    at handleRedirect (c:\\HDInsight\\azure-xplat-cli\\lib\\util\\utils.js:434:9)\n    at c:\\HDInsight\\azure-xplat-cli\\lib\\util\\utils.js:457:7\n    at handleRedirect (c:\\HDInsight\\azure-xplat-cli\\node_modules\\azure-common\\lib\\services\\filters\\redirectfilter.js:36:9)\n    at c:\\HDInsight\\azure-xplat-cli\\node_modules\\azure-common\\lib\\services\\filters\\errorhandlingfilter.js:49:7\n    at Request._callback (c:\\HDInsight\\azure-xplat-cli\\node_modules\\azure-common\\lib\\http\\request-pipeline.js:109:14)\n    at Request.self.callback (c:\\HDInsight\\azure-xplat-cli\\node_modules\\azure-common\\node_modules\\request\\request.js:199:22)\n    at emitTwo (events.js:87:13)\n    at Request.emit (events.js:172:7)\n    at Request.<anonymous> (c:\\HDInsight\\azure-xplat-cli\\node_modules\\azure-common\\node_modules\\request\\request.js:1160:14)\n    at emitOne (events.js:82:20)\n    at Request.emit (events.js:169:7)\n    at IncomingMessage.<anonymous> (c:\\HDInsight\\azure-xplat-cli\\node_modules\\azure-common\\node_modules\\request\\request.js:1111:12)\n    at emitNone (events.js:72:20)\n    at IncomingMessage.emit (events.js:166:7)\n    at endReadableNT (_stream_readable.js:893:12)\n    at doNTCallback2 (node.js:429:9)\n    at process._tickCallback (node.js:343:17)\n'
+
+
