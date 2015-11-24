@@ -25,13 +25,15 @@ var testprefix = 'arm-cli-HDInsight-cluster-create-tests';
 var groupPrefix = 'xplatTestRgHDInsightClusterCreate';
 var clusterNamePrefix = 'xplatTestHDInsightClusterCreate';
 var HdinsightTestUtil = require('../../../util/hdinsightTestUtil');
-var requiredEnvironment = [{
-  name: 'AZURE_ARM_TEST_LOCATION',
-  defaultValue: 'southeastasia'
-}, {
-  name: 'SSHCERT',
-  defaultValue: 'test/myCert.pem'
-}];
+var requiredEnvironment = [
+  {
+    name: 'AZURE_ARM_TEST_LOCATION',
+    defaultValue: 'eastus'
+  }, {
+    name: 'SSHCERT',
+    defaultValue: 'test/myCert.pem'
+  }
+];
 
 var liveOnly = process.env.NOCK_OFF ? it : it.skip;
 var timeBeforeClusterAvailable;
@@ -51,7 +53,7 @@ var groupName = "xplattesthdinsightRG",
   zookeeperNodeSize = "Standard_D3",
   vNetPrefix = 'xplattestvnet',
   subnetName = 'xplattestsubnet',
-  sshUsername = 'xplattestsshuser',
+  sshUserName = 'xplattestsshuser',
   sshPassword = 'Brillio@2015',
   sshPublicKey,
   rdpUsername = 'xplattestrdpuser',
@@ -60,7 +62,7 @@ var groupName = "xplattesthdinsightRG",
   tags = 'a=b;b=c;d=',
   configFile = 'test/data/hdinsight-test-config-data.json';
 
-describe('arm', function() { 
+describe('arm', function() {
   describe('hdinsight', function() {
     var suite, retry = 5;
     var hdinsightTest = new HdinsightTestUtil();
@@ -71,25 +73,30 @@ describe('arm', function() {
         defaultStorageAccount = process.env.AZURE_ARM_TEST_STORAGEACCOUNT;
         defaultStorageAccountKey = process.env.AZURE_STORAGE_ACCESS_KEY;
         defaultStorageContainer = process.env.AZURE_STORAGE_CONTAINER;
-        groupName = suite.isMocked ? groupName : suite.generateId(groupPrefix, null);
-        clusterNameWindows = suite.isMocked ? clusterNameWindows : suite.generateId(clusterNamePrefix, null);
-        clusterNameLinux = suite.isMocked ? clusterNameLinux : suite.generateId(clusterNamePrefix, null);
+        groupName = suite.generateId(groupPrefix, null);
+        clusterNameWindows = suite.generateId(clusterNamePrefix, null);
+        clusterNameLinux = suite.generateId(clusterNamePrefix, null);
         tags = 'a=b;b=c;d=';
         rdpExpiryDate = '12/12/2025';
-        //sshPublicKey = hdinsightTest.parseSSHPublicKeyPemFile(process.env.SSHCERT);
         timeBeforeClusterAvailable = (!suite.isMocked || suite.isRecording) ? 30000 : 10;
         if (suite.isMocked) {
           utils.POLL_REQUEST_INTERVAL = 0;
         }
-        
         suite.setupSuite(done);
       });
     });
 
-    after(function (done) {
-      var clusters = [clusterNameWindows, clusterNameLinux];
-      hdinsightTest.deleteUsedCluster(groupName, clusters, suite, function(result) {
-        suite.teardownSuite(done);
+    after(function(done) {
+      suite.teardownSuite(function() {
+        if (!suite.isPlayback()) {
+
+          var clusters = [clusterNameWindows, clusterNameLinux];
+          hdinsightTest.deleteUsedCluster(groupName, clusters, suite, function(result) {
+            suite.teardownSuite(done);
+          });
+        } else {
+          done();
+        }
       });
     });
 
@@ -121,32 +128,32 @@ describe('arm', function() {
             '--rdpUserName %s --rdpPassword %s --rdpAccessExpiry %s ' +
             '--clusterType %s ' +
             '--version %s ' +
-            //'--virtualNetworkId %s ' +
-            //'--subnetName %s ' +
-            //'--configurationPath %s ' +
             '--tags %s ' +
-            '--json ' +
-            '-vv ',
+            '--json ',
             groupName, clusterNameWindows, location, 'Windows',
             defaultStorageAccount, defaultStorageAccountKey, defaultStorageContainer,
             headNodeSize, workerNodeCount, workerNodeSize, zookeeperNodeSize,
             username, password, rdpUsername, rdpPassword, rdpExpiryDate, 'Hadoop', 'default',
-            //'10.0.0.0/16', '10.0.0.0/24', 
-            //configFile, 
             tags).split(' ');
-          
-          testUtils.executeCommand(suite, retry, cmd, function(result) {
+
+          suite.execute(cmd, function(result) {
+            result.text.should.containEql('');
             result.exitStatus.should.equal(0);
-            var clusterDetailsJson = JSON.parse(result.text);
-            clusterDetailsJson.name.should.be.equal(clusterName);
-            done();
+
+            if (!suite.isPlayback()) {
+              setTimeout(function() {
+                done();
+              }, HdinsightTestUtil.timeoutLarge);
+            } else {
+              done();
+            }
           });
         });
       });
-      
-      it('create linux cluster should pass', function (done) {
+
+      it('create linux cluster should pass', function(done) {
         this.timeout(hdinsightTest.timeoutLarge);
-        hdinsightTest.createGroup(groupName, location, suite, function (result) {
+        hdinsightTest.createGroup(groupName, location, suite, function(result) {
           var cmd = util.format('hdinsight cluster create ' +
             '--resource-group %s ' +
             '--clusterName %s ' +
@@ -161,66 +168,58 @@ describe('arm', function() {
             '--zookeeperNodeSize %s ' +
             '--userName %s --password %s ' +
             '--sshUserName %s --sshPassword %s ' +
-            //'--sshPublicKey %s ' +
             '--clusterType %s ' +
             '--version %s ' +
-            '--json ' +
-            '-vv ',
+            '--json ',
             groupName, clusterNameLinux, location, 'Linux',
             defaultStorageAccount, defaultStorageAccountKey, defaultStorageContainer,
             headNodeSize, workerNodeCount, workerNodeSize, zookeeperNodeSize,
-            username, password, sshUserName, sshPassword, 
-            //sshPublicKey, 
+            username, password, sshUserName, sshPassword,
             'Hadoop', 'default',
-            //'10.0.0.0/16', '10.0.0.0/24', 
-            //configFile, 
             tags).split(' ');
-          
-          testUtils.executeCommand(suite, retry, cmd, function (result) {
+
+          suite.execute(cmd, function(result) {
+            result.text.should.containEql('');
             result.exitStatus.should.equal(0);
-            var clusterDetailsJson = JSON.parse(result.text);
-            clusterDetailsJson.name.should.be.equal(clusterName);
-            done();
+            if (!suite.isPlayback()) {
+              setTimeout(function () {
+                done();
+              }, HdinsightTestUtil.timeoutLarge);
+            } else {
+              done();
+            }
           });
         });
       });
 
-      it('show should display details about hdinsight cluster', function(done) {
+      it('show should display details about windows hdinsight cluster', function(done) {
         setTimeout(function() {
           var cmd = util.format('hdinsight cluster show --resource-group %s --clusterName %s --json', groupName, clusterNameWindows).split(' ');
 
-          testUtils.executeCommand(suite, retry, cmd, function(result) {
+          suite.execute(cmd, function(result) {
+            result.text.should.containEql('');
             result.exitStatus.should.equal(0);
-            var allResources = JSON.parse(result.text);
-            allResources.name.should.equal(clusterNameWindows);
-            allResources.provisioningState.should.equal('Running');
-            
-            var cmd = util.format('hdinsight cluster show --resource-group %s --clusterName %s --json', groupName, clusterNameLinux).split(' ');
+            done();
+          });
+        }, timeBeforeClusterAvailable);
+      });
 
-            testUtils.executeCommand(suite, retry, cmd, function(result) {
-              result.exitStatus.should.equal(0);
-              var allResources = JSON.parse(result.text);
-              allResources.name.should.equal(clusterNameLinux);
-              allResources.provisioningState.should.equal('Running');
-              done();
-            });
-          }, timeBeforeClusterAvailable);
-        });
+      it('show should display details about linux hdinsight cluster', function(done) {
+        setTimeout(function() {
+          var cmd = util.format('hdinsight cluster show --resource-group %s --clusterName %s --json', groupName, clusterNameLinux).split(' ');
+
+          suite.execute(cmd, function(result) {
+            result.text.should.containEql('');
+            result.exitStatus.should.equal(0);
+            done();
+          });
+        }, timeBeforeClusterAvailable);
       });
 
       it('list should display all hdinsight clusters in resource group', function(done) {
         var cmd = util.format('hdinsight cluster list --resource-group %s --json', groupName).split(' ');
-        this.timeout(hdinsightTest.timeoutLarge);
-        
-        testUtils.executeCommand(suite, retry, cmd, function(result) {
+        suite.execute(cmd, function(result) {
           result.exitStatus.should.equal(0);
-          var allResources = JSON.parse(result.text);
-          allResources.some(function(res) {
-            return res.name === clusterNameWindows || res.Name === clusterNameLinux;
-          }).should.be.true;
-          allResources.some(function(res) {
-            return res.resourceGroupName === groupName;
-          }).should.be.true;
           done();
         });
       });
@@ -228,80 +227,67 @@ describe('arm', function() {
       it('list all should display all hdinsight clusters in subscription', function(done) {
         var cmd = util.format('hdinsight cluster list --json', '').split(' ');
         this.timeout(hdinsightTest.timeoutLarge);
-        
-        testUtils.executeCommand(suite, retry, cmd, function(result) {
+
+        suite.execute(cmd, function(result) {
           result.exitStatus.should.equal(0);
-          var allResources = JSON.parse(result.text);
-          allResources.some(function(res) {
-            return (res.name === clusterNameWindows || res.name === clusterNameLinux);
-          }).should.be.true;
           done();
         });
+      });
+      
+      it('disable-http-access should disable HTTP access to the cluster', function (done) {
+        setTimeout(function () {
+          
+          var cmd = util.format('hdinsight cluster disable-http-access --resource-group %s --clusterName %s --json',
+            groupName, clusterNameWindows).split(' ');
+          suite.execute(cmd, function (result) {
+            result.exitStatus.should.equal(0);
+            done();
+          });
+        }, HdinsightTestUtil.timeoutMedium);
       });
 
       it('enable-http-access should enable HTTP access to the cluster', function(done) {
         setTimeout(function() {
           var cmd = util.format('hdinsight cluster enable-http-access --resource-group %s --clusterName %s --userName %s --password %s --json',
-            groupName, clusterName, username, password).split(' ');
-          testUtils.executeCommand(suite, retry, cmd, function(result) {
+            groupName, clusterNameWindows, username, password).split(' ');
+          suite.execute(cmd, function(result) {
+            result.exitStatus.should.equal(0);
+            done();
+          });
+        }, HdinsightTestUtil.timeoutMedium);
+      });
+
+      it('disable-rdp-access should disable HTTP access to the cluster', function(done) {
+        setTimeout(function() {
+          var cmd = util.format('hdinsight cluster disable-rdp-access --resource-group %s --clusterName %s --json',
+            groupName, clusterNameWindows).split(' ');
+          suite.execute(cmd, function(result) {
+            result.exitStatus.should.equal(0);
+            done();
+          });
+        }, HdinsightTestUtil.timeoutMedium);
+      });
+      
+      it('enable-rdp-access should enable HTTP access to the cluster', function (done) {
+        setTimeout(function () {
+          var cmd = util.format('hdinsight cluster enable-rdp-access --resource-group %s --clusterName %s --rdpUserName %s --rdpPassword %s --json',
+            groupName, clusterNameWindows, username, password, '12/12/2016').split(' ');
+          suite.execute(cmd, function (result) {
+            result.exitStatus.should.equal(0);
+            done();
+          });
+        }, HdinsightTestUtil.timeoutMedium);
+      });
+
+      it('delete should delete hdinsight linux cluster', function (done) {
+        setTimeout(function () {
+          var cmd = util.format('hdinsight cluster delete --resource-group %s --clusterName %s --quiet --json', groupName, clusterNameLinux).split(' ');
+          testUtils.executeCommand(suite, retry, cmd, function (result) {
             result.exitStatus.should.equal(0);
             done();
           });
         }, timeBeforeClusterAvailable);
       });
-
-      it('disable-http-access should disable HTTP access to the cluster', function(done) {
-        this.timeout(hdinsightTest.timeoutLarge);
-        
-        var cmd = util.format('hdinsight cluster disable-http-access --resource-group %s --clusterName %s --json',
-          groupName, clusterName).split(' ');
-        testUtils.executeCommand(suite, retry, cmd, function(result) {
-          result.exitStatus.should.equal(0);
-          done();
-        });
-      });
-
-      it('enable-rdp-access should enable HTTP access to the cluster', function(done) {
-        setTimeout(function () {
-        var cmd = util.format('hdinsight cluster enable-rdp-access --resource-group %s --clusterName %s --rdpUserName %s --rdpPassword %s --json',
-          groupName, clusterName, username, password, '12/12/2016').split(' ');
-        testUtils.executeCommand(suite, retry, cmd, function(result) {
-          result.exitStatus.should.equal(0);
-          done();
-          });
-        }, timeBeforeClusterAvailable);
-      });
-
-      it('disable-rdp-access should disable HTTP access to the cluster', function(done) {
-        this.timeout(hdinsightTest.timeoutLarge);
-        
-        var cmd = util.format('hdinsight cluster disable-rdp-access --resource-group %s --clusterName %s --json',
-          groupName, clusterName).split(' ');
-        testUtils.executeCommand(suite, retry, cmd, function(result) {
-          result.exitStatus.should.equal(0);
-          done();
-        });
-      });
-
-      it('delete should delete hdinsight cluster', function(done) {
-        this.timeout(hdinsightTest.timeoutLarge);
-        var cmd = util.format('hdinsight cluster delete --resource-group %s --clusterName %s --quiet --json', groupName, clusterName).split(' ');
-        testUtils.executeCommand(suite, retry, cmd, function(result) {
-          result.exitStatus.should.equal(0);
-          done();
-        });
-      });
-
-      it('resize should resize the cluster to target size', function (done) {
-        var cmd = util.format('hdinsight cluster resize --resource-group %s --clusterName %s --targetInstanceCount 10 --json', groupName, clusterName).split(' ');
-        testUtils.executeCommand(suite, retry, cmd, function (result) {
-          result.exitStatus.should.equal(0);
-          var allResources = JSON.parse(result.text);
-          allResources.name.should.equal(clusterName);
-          done();
-        });
-      });
-
     });
   });
 });

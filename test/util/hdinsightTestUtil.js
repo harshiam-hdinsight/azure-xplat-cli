@@ -27,7 +27,7 @@ exports = module.exports = hdinsightTestUtil;
  * 
  */
 function hdinsightTestUtil() {
-  this.timeoutLarge = 800000;
+  this.timeoutLarge = 27000000;
   this.timeoutMedium = 600000;
 }
 
