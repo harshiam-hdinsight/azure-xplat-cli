@@ -89,9 +89,7 @@ describe('arm', function() {
     after(function(done) {
       suite.teardownSuite(function() {
         if (!suite.isPlayback()) {
-
-          var clusters = [clusterNameWindows, clusterNameLinux];
-          hdinsightTest.deleteUsedCluster(groupName, clusters, suite, function(result) {
+          hdinsightTest.deleteUsedGroup(groupName, suite, function(result) {
             suite.teardownSuite(done);
           });
         } else {
@@ -182,7 +180,7 @@ describe('arm', function() {
             result.text.should.containEql('');
             result.exitStatus.should.equal(0);
             if (!suite.isPlayback()) {
-              setTimeout(function () {
+              setTimeout(function() {
                 done();
               }, HdinsightTestUtil.timeoutLarge);
             } else {
@@ -195,7 +193,6 @@ describe('arm', function() {
       it('show should display details about windows hdinsight cluster', function(done) {
         setTimeout(function() {
           var cmd = util.format('hdinsight cluster show --resource-group %s --clusterName %s --json', groupName, clusterNameWindows).split(' ');
-
           suite.execute(cmd, function(result) {
             result.text.should.containEql('');
             result.exitStatus.should.equal(0);
@@ -233,13 +230,12 @@ describe('arm', function() {
           done();
         });
       });
-      
-      it('disable-http-access should disable HTTP access to the cluster', function (done) {
-        setTimeout(function () {
-          
+
+      it('disable-http-access should disable HTTP access to the cluster', function(done) {
+        setTimeout(function() {
           var cmd = util.format('hdinsight cluster disable-http-access --resource-group %s --clusterName %s --json',
             groupName, clusterNameWindows).split(' ');
-          suite.execute(cmd, function (result) {
+          suite.execute(cmd, function(result) {
             result.exitStatus.should.equal(0);
             done();
           });
@@ -257,7 +253,7 @@ describe('arm', function() {
         }, HdinsightTestUtil.timeoutMedium);
       });
 
-      it('disable-rdp-access should disable HTTP access to the cluster', function(done) {
+      it('disable-rdp-access should disable RDP access to the cluster', function(done) {
         setTimeout(function() {
           var cmd = util.format('hdinsight cluster disable-rdp-access --resource-group %s --clusterName %s --json',
             groupName, clusterNameWindows).split(' ');
@@ -267,26 +263,44 @@ describe('arm', function() {
           });
         }, HdinsightTestUtil.timeoutMedium);
       });
-      
-      it('enable-rdp-access should enable HTTP access to the cluster', function (done) {
-        setTimeout(function () {
+
+      it('enable-rdp-access should enable RDP access to the cluster', function(done) {
+        setTimeout(function() {
           var cmd = util.format('hdinsight cluster enable-rdp-access --resource-group %s --clusterName %s --rdpUserName %s --rdpPassword %s --json',
-            groupName, clusterNameWindows, username, password, '12/12/2016').split(' ');
-          suite.execute(cmd, function (result) {
+            groupName, clusterNameWindows, rdpUsername, rdpPassword, '12/12/2016').split(' ');
+          suite.execute(cmd, function(result) {
             result.exitStatus.should.equal(0);
             done();
           });
         }, HdinsightTestUtil.timeoutMedium);
       });
 
-      it('delete should delete hdinsight linux cluster', function (done) {
-        setTimeout(function () {
-          var cmd = util.format('hdinsight cluster delete --resource-group %s --clusterName %s --quiet --json', groupName, clusterNameLinux).split(' ');
-          testUtils.executeCommand(suite, retry, cmd, function (result) {
-            result.exitStatus.should.equal(0);
+      it('delete should delete hdinsight windows cluster', function(done) {
+        var cmd = util.format('hdinsight cluster delete --resource-group %s --clusterName %s --quiet --json', groupName, clusterNameWindows).split(' ');
+        suite.execute(cmd, function(result) {
+          result.exitStatus.should.equal(0);
+          if (!suite.isPlayback()) {
+            setTimeout(function() {
+              done();
+            }, HdinsightTestUtil.timeoutLarge);
+          } else {
             done();
-          });
-        }, timeBeforeClusterAvailable);
+          }
+        });
+      });
+
+      it('delete should delete hdinsight linux cluster', function(done) {
+        var cmd = util.format('hdinsight cluster delete --resource-group %s --clusterName %s --quiet --json', groupName, clusterNameLinux).split(' ');
+        suite.execute(cmd, function(result) {
+          result.exitStatus.should.equal(0);
+          if (!suite.isPlayback()) {
+            setTimeout(function() {
+              done();
+            }, HdinsightTestUtil.timeoutLarge);
+          } else {
+            done();
+          }
+        });
       });
     });
   });

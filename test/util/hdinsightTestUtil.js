@@ -39,15 +39,8 @@ hdinsightTestUtil.prototype.createGroup = function(groupName, location, suite, c
 
 };
 
-hdinsightTestUtil.prototype.deleteUsedCluster = function(groupName, clusters, suite, callback) {
+hdinsightTestUtil.prototype.deleteUsedGroup = function(groupName, suite, callback) {
   if (!suite.isPlayback()) {
-    clusters.forEach(function(clusterName) {
-      suite.execute('hdinsight cluster delete --resource-group %s --clusterName %s --quiet --json', groupName, clusterName, function(result) {
-        result.exitStatus.should.equal(0);
-        callback();
-      });
-    });
-
     suite.execute('group delete %s --quiet --json', groupName, function(result) {
       result.exitStatus.should.equal(0);
       callback();
